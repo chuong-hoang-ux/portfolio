@@ -59,7 +59,6 @@ nav ul li a {
 /* ----- Rotating object ----- */
 #rotating-object {
     margin-top: 3em;
-    margin-bottom: 2em;
     animation: rotating-object 10s infinite linear;
     width: 100%;
 }
@@ -448,6 +447,27 @@ work-exp-time-des {
     margin-top: 1em;
 }
 
+/* PAGE: PHOTO */
+
+
+#intro-title-photo { 
+    font-family: "ivymode", sans-serif;
+    font-weight: 400;
+    max-width: 574px;
+    color: var(--black);
+    font-size: 4rem; /* 64px */
+    text-align: center;
+    margin-bottom: 0.5em;
+    line-height: 0.8em;
+}
+
+#intro-title-photo .italic-word-photo {
+    font-family: "ivymode", sans-serif;
+    font-weight: 400;
+    font-size: 4rem;
+    color: var(--black);
+    font-style: italic;
+    }
 
 /* ---------- |Mobile| PAGE: CONTACT ---------- */
 #page-contact {
