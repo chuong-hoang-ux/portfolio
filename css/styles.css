@@ -8,7 +8,7 @@
     --grey: #e3e3e3;
     --light-grey: #f5f5f5;
     --dark-grey: #343434;
-    --yellow:#ffe57d;
+    --yellow: #ffe57d;
     --light-yellow: #FFF7EA;
     --light-green: #DEE8E4;
 }
@@ -24,7 +24,7 @@
 header {
     position: fixed;
     top: 0;
-    left:0;
+    left: 0;
     right: 0;
     border-bottom: 1px solid var(--grey);
     background-color: var(--white);
@@ -33,7 +33,7 @@ header {
 }
 
 .navbar {
-    width: 100%; 
+    width: 100%;
 }
 
 
@@ -47,7 +47,7 @@ nav ul {
     display: flex;
     align-items: center;
     list-style-type: none;
-    gap: 2em; 
+    gap: 2em;
     justify-content: center;
 }
 
@@ -64,13 +64,13 @@ nav ul li a {
 }
 
 @keyframes rotating-object {
-from {
-transform: rotate(0deg);
-}
+    from {
+        transform: rotate(0deg);
+    }
 
-to {
-transform: rotate(360deg);
-}
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* ----- UX, Video and Photo Partials ----- */
@@ -79,7 +79,8 @@ transform: rotate(360deg);
     font-family: "DM Sans", sans-serif;
     font-weight: 400;
     color: var(--black);
-    font-size: 2rem; /* 32px */
+    font-size: 2rem;
+    /* 32px */
     text-align: center;
     margin-bottom: 1em;
     /* margin-top: 1em; */
@@ -95,15 +96,15 @@ transform: rotate(360deg);
     border-radius: 0.5em;
     border: solid 1px var(--grey);
     overflow: hidden;
-    box-shadow: 0 0.125em 0.3125em rgb(122, 122, 122,0.1);
+    box-shadow: 0 0.125em 0.3125em rgb(122, 122, 122, 0.1);
     /* x, y, blur radius, color */
     position: relative;
     transition: transform 0.5s;
 }
 
 .card-body {
-    padding-top:1.5em;
-    
+    padding-top: 1.5em;
+
 }
 
 .card:hover {
@@ -113,13 +114,14 @@ transform: rotate(360deg);
 .card-title {
     font-family: "DM Sans", sans-serif;
     font-weight: 400;
-    font-size: 1.25rem; /* 20px */
+    font-size: 1.25rem;
+    /* 20px */
     font-weight: 500;
     line-height: 1.875rem;
     /* margin-top: 12px; */
     text-decoration: none;
     color: var(--black);
-    
+
 }
 
 .tag {
@@ -194,8 +196,8 @@ footer p {
 .page-fullscreen-flex {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
-    
+    min-height: 100vh;
+
 }
 
 .page-fullscreen-flex main {
@@ -227,22 +229,26 @@ footer p {
     padding: 1em;
 }
 
-#intro-title { 
+#intro-title {
     font-family: "ivymode", sans-serif;
     font-weight: 400;
     color: var(--black);
-    font-size: 4rem; /* 64px */
+    font-size: 4rem;
+    /* 64px */
     text-align: center;
     margin-bottom: 0.5em;
     line-height: 0.8em;
     /* margin-right: 1em; */
+    position: relative;
+    overflow: hidden;
 }
 
 
 #intro-title .italic-word {
     font-family: "ivymode", sans-serif;
     font-weight: 400;
-    font-size: 4rem;/* 64px */
+    font-size: 4rem;
+    /* 64px */
     color: var(--black);
     font-style: italic;
 }
@@ -251,7 +257,8 @@ footer p {
     font-family: "DM Sans", sans-serif;
     font-weight: 400;
     color: var(--black);
-    font-size: 1.125rem; /* 20px*/
+    font-size: 1.125rem;
+    /* 20px*/
     text-align: center;
 }
 
@@ -278,7 +285,8 @@ footer p {
 .indicator-space {
     width: 100%;
     display: flex;
-    justify-content: center; /* Centers horizontally */
+    justify-content: center;
+    /* Centers horizontally */
 }
 
 .indicator {
@@ -300,8 +308,13 @@ footer p {
 }
 
 @keyframes contact-asterisk {
-    from { opacity: 100;}
-    to { opacity: 0;}
+    from {
+        opacity: 100;
+    }
+
+    to {
+        opacity: 0;
+    }
 }
 
 #contact {
@@ -309,7 +322,8 @@ footer p {
     margin-bottom: 5em;
     color: var(--white);
 }
-#contact-title { 
+
+#contact-title {
     font-family: "DM Sans", sans-serif;
     font-weight: 400;
     font-size: 2em;
@@ -324,12 +338,16 @@ footer p {
     margin-top: 2em;
 }
 
-#linkedin, #behance, #vimeo, #resume {
+#linkedin,
+#behance,
+#vimeo,
+#resume {
     font-weight: 900;
     color: var(--white);
 }
 
-#linkedin:hover, #behance:hover {
+#linkedin:hover,
+#behance:hover {
     color: var(--blue);
     cursor: pointer;
 }
@@ -376,7 +394,7 @@ footer p {
 #about-current-status {
     border: solid 2px var(--black);
     border-radius: 0.25em;
-    margin-bottom: 1em; 
+    margin-bottom: 1em;
     overflow: hidden;
 }
 
@@ -407,7 +425,7 @@ footer p {
 
 .about-title {
     font-weight: bold;
-    font-size: 1rem; 
+    font-size: 1rem;
     text-transform: uppercase;
 }
 
@@ -418,7 +436,7 @@ blockquote {
     color: var(--black);
     font-size: 2rem;
     text-align: left;
-    padding: 0.5em 0em 0.5em 1em; 
+    padding: 0.5em 0em 0.5em 1em;
     /* top right bottom left */
     line-height: 1.5em;
     border-left: solid 2px var(--black);
@@ -435,10 +453,11 @@ blockquote {
 
 work-exp-time-des {
     margin-top: 1em;
-    margin-bottom:0;
+    margin-bottom: 0;
 }
 
-.work-experience-time, .education-time {
+.work-experience-time,
+.education-time {
     font-weight: bold;
     margin-bottom: 0;
 }
@@ -450,12 +469,13 @@ work-exp-time-des {
 /* PAGE: PHOTO */
 
 
-#intro-title-photo { 
+#intro-title-photo {
     font-family: "ivymode", sans-serif;
     font-weight: 400;
     max-width: 574px;
     color: var(--black);
-    font-size: 4rem; /* 64px */
+    font-size: 4rem;
+    /* 64px */
     text-align: center;
     margin-bottom: 0.5em;
     line-height: 0.8em;
@@ -467,11 +487,11 @@ work-exp-time-des {
     font-size: 4rem;
     color: var(--black);
     font-style: italic;
-    }
+}
 
 /* ---------- |Mobile| PAGE: CONTACT ---------- */
 #page-contact {
-    margin-top:10em;
+    margin-top: 10em;
     padding-left: 1.5em;
     padding-right: 1.5em;
     margin-bottom: 5em;
@@ -532,13 +552,13 @@ work-exp-time-des {
     margin-bottom: 0em;
 } */
 
-.data-value .data{
+.data-value .data {
     margin-bottom: 0;
     font-weight: 700;
     color: var(--dark-grey);
 }
 
-.data-value .value{
+.data-value .value {
     font-size: 1.25rem;
     margin-bottom: 0;
 }
@@ -588,7 +608,7 @@ work-exp-time-des {
     #logo {
         margin-left: 5em;
     }
-    
+
     header nav ul {
         display: flex;
         justify-content: flex-end;
@@ -599,6 +619,7 @@ work-exp-time-des {
         margin: auto;
         max-width: 60%;
     }
+
     /* ---------- |Desktop| PAGE: HOME ---------- */
     /* Section: intro */
     #home-chuong-portrait {
@@ -611,17 +632,20 @@ work-exp-time-des {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 8em; 
+        margin-top: 8em;
     }
 
-    #intro-title { 
+    #intro-title {
         font-family: "ivymode", sans-serif;
         font-weight: 400;
         color: var(--black);
-        font-size: 6rem; /* 64px */
+        font-size: 6rem;
+        /* 64px */
         text-align: center;
         margin-bottom: 0.5em;
         line-height: 0.8em;
+        position: relative;
+        overflow: hidden;
     }
 
     #intro-title .italic-word {
@@ -632,11 +656,18 @@ work-exp-time-des {
         font-style: italic;
     }
 
+    /* Greeting animation desktop font size */
+    #intro-title .greeting {
+        font-size: 6rem !important;
+        /* Match desktop #intro-title size */
+    }
+
     #intro-description {
         font-family: "DM Sans", sans-serif;
         font-weight: 400;
         color: var(--black);
-        font-size: 1.5rem; /* 24px */
+        font-size: 1.5rem;
+        /* 24px */
         text-align: center;
         max-width: 50rem;
     }
@@ -649,10 +680,10 @@ work-exp-time-des {
         margin-bottom: 3em;
         display: grid;
         grid-template-columns: 1fr 2fr;
-        grid-template-areas: 
-        "about-page-title about-page-title" 
-        "about-general about-important-info"
-        "about-about-me about-about-me";
+        grid-template-areas:
+            "about-page-title about-page-title"
+            "about-general about-important-info"
+            "about-about-me about-about-me";
         gap: 0.5em;
     }
 
@@ -706,18 +737,18 @@ work-exp-time-des {
         margin-right: auto;
     }
 
-    .subpage-project-info{
+    .subpage-project-info {
         display: grid;
         display: grid;
         grid-template-columns: 1fr 2fr;
-        grid-template-areas: 
-        "block-data-value block-project-overview" 
-        "block-data-value block-project-overview";
+        grid-template-areas:
+            "block-data-value block-project-overview"
+            "block-data-value block-project-overview";
         gap: 1em;
 
     }
 
-    .block-data-value{
+    .block-data-value {
         grid-area: block-data-value;
     }
 
@@ -725,9 +756,85 @@ work-exp-time-des {
         grid-area: block-project-overview;
     }
 
-    .data-value:last-child{
+    .data-value:last-child {
         margin-bottom: 0;
     }
 
+}
 
+/* ---------- Greeting Animation ---------- */
+/* Keyframe animation for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Base style for all greetings - start hidden */
+.greeting {
+    display: inline-block;
+    opacity: 0;
+    animation: slideInUp 0.6s ease-out forwards;
+    font-family: "ivymode", sans-serif;
+    font-weight: 400;
+    font-size: 4rem;
+    /* Match mobile #intro-title size */
+}
+
+/* Stagger the animations for each greeting */
+.greeting-1 {
+    animation-delay: 0.5s;
+    /* Starts after image is barely visible */
+}
+
+.greeting-2 {
+    animation-delay: 1.0s;
+}
+
+.greeting-3 {
+    animation-delay: 1.5s;
+}
+
+/* New Animation for Hero Section */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 1. Image */
+#home-chuong-portrait {
+    opacity: 0;
+    /* Start hidden */
+    animation: slideInUp 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+}
+
+/* 2. Title (Greetings) - Updated definition to use slideInUp and new delays */
+/* Original .greeting and .greeting-1/2/3 rules need update/override */
+/* We will override existing .greeting animation here or modify the original block. */
+/* Let's modify the original block instead to rely on slideInUp */
+
+/* 3. Description */
+#intro-description {
+    opacity: 0;
+    animation: slideInUp 0.8s ease-out forwards;
+    animation-delay: 1.8s;
+}
+
+/* 4. Button */
+.button-get-to-know-me {
+    opacity: 0;
+    animation: slideInUp 0.8s ease-out forwards;
+    animation-delay: 2.0s;
 }
