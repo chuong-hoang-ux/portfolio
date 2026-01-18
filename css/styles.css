@@ -19,6 +19,27 @@
     font-size: 1rem;
 }
 
+/* body {
+    background: linear-gradient(-45deg, #DEE8E4, #ffe57d, #FFF7EA, #e3e3e3);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    min-height: 100vh;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+} */
+
 /* ---------- PARTIALS SECTION STARTS----------*/
 /* ----- Navigation bar ----- */
 header {
@@ -26,8 +47,10 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    border-bottom: 1px solid var(--grey);
-    background-color: var(--white);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     display: flex;
     z-index: 999;
 }
@@ -93,12 +116,16 @@ nav ul li a {
 /* card animation */
 .card {
     margin-bottom: 2em;
-    border-radius: 0.5em;
-    border: solid 1px var(--grey);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 0.75em;
+    /* border: solid 1px var(--grey); */
     overflow: hidden;
-    box-shadow: 0 0.125em 0.3125em rgb(122, 122, 122, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     /* x, y, blur radius, color */
-    position: relative;
+    /* position: relative; */
     transition: transform 0.5s;
 }
 
@@ -141,9 +168,12 @@ nav ul li a {
 .button-view-project {
     display: block;
     padding: 1em;
+    max-width: fit-content;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
     background-color: var(--black);
     color: var(--white);
-    border-radius: 0.25em;
+    border-radius: 0.5em;
     overflow: hidden;
     font-weight: bolder;
     text-align: center;
@@ -576,10 +606,14 @@ work-exp-time-des {
 }
 
 .subpage-project-info {
-    background-color: var(--light-grey);
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     /* border: solid 1px var(--dark-grey); */
     padding: 1em;
     border-radius: 0.5em;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .subpage-title-section {
