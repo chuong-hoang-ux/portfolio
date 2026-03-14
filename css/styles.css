@@ -471,7 +471,37 @@ footer p {
     font-weight: 400;
     font-size: 2.5rem;
     margin-bottom: 1em;
-    line-height: 1.5em;
+    line-height: 1.2em;
+    text-align: center;
+}
+
+#page-about-title .italic-word {
+    font-style: italic;
+    font-family: "ivymode", sans-serif;
+    font-size: 2.5rem;
+}
+
+.about-tags-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 2em;
+    width: 100%;
+}
+
+.about-tag {
+    height: 40px;
+    border-radius: 100px;
+    border: 1px solid var(--black);
+    padding: 8px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Work Sans", sans-serif;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    opacity: 1;
 }
 
 #about-portrait {
@@ -762,7 +792,7 @@ work-exp-time-des {
 
     /* ---------- |Desktop| PAGE: ABOUT ---------- */
     #page-about {
-        max-width: 70%;
+        max-width: 60%;
         margin-left: auto;
         margin-right: auto;
         margin-top: 120px;
@@ -771,6 +801,7 @@ work-exp-time-des {
         grid-template-columns: 1fr 2fr;
         grid-template-areas:
             "about-page-title about-page-title"
+            "about-tags-container about-tags-container"
             "about-general about-important-info"
             "about-about-me about-about-me";
         gap: 0.5em;
@@ -779,7 +810,11 @@ work-exp-time-des {
     #page-about-title {
         grid-area: about-page-title;
         text-align: center;
-        line-height: 1.5em;
+        line-height: 1.2em;
+    }
+
+    .about-tags-container {
+        grid-area: about-tags-container;
     }
 
     #about-portrait {
