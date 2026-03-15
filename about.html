@@ -1,217 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About</title>
-    <link rel="icon" type="image/png" href="img/favicon.png" />
-    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
-  </head>
 
-  <body>
-    <!---------- Navigation bar starts ---------->
-    <header>
-      <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-          <!-- Logo -->
-          <a class="navbar-brand" href="index.html"
-            ><img id="logo" src="img/logo.webp" alt="chuong hoang logo"
-          /></a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ms-auto">
-              <!-- Menu item: Home -->
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="index.html"
-                  >Home</a
-                >
-              </li>
-              <!-- Menu item: About -->
-              <li class="nav-item">
-                <a class="nav-link active" href="about.html">About</a>
-              </li>
-              <!-- Menu item: Photography -->
-              <li class="nav-item">
-                <a class="nav-link" href="photography.html">Photography</a>
-              </li>
-              <!-- Menu item: My Resume -->
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="https://drive.google.com/file/d/1tcwM0p36poORWJm-9E5RetiFOh8ayKWm/view?usp=sharing"
-                  target="_blank"
-                  >My Résumé</a
-                >
-              </li>
-            </ul>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About</title>
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+
+<body>
+  <!---------- Navigation bar starts ---------->
+  <header>
+    <nav class="navbar navbar-expand-lg w-100">
+      <div class="container-fluid position-relative d-flex align-items-center">
+        <!-- Logo for Mobile (top left) -->
+        <a class="navbar-brand d-lg-none" href="index.html"><img id="logo" src="img/logo.webp"
+            alt="chuong hoang logo" /></a>
+
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse w-100" id="navbarNavDropdown">
+
+          <!-- Left links block (takes exactly 50% width and aligns links right) -->
+          <ul class="navbar-nav gap-lg-4 d-flex nav-left-links">
+            <!-- Menu item: Work -->
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Work</a>
+            </li>
+            <!-- Menu item: My Resume -->
+            <li class="nav-item">
+              <a class="nav-link"
+                href="https://drive.google.com/file/d/1tcwM0p36poORWJm-9E5RetiFOh8ayKWm/view?usp=sharing"
+                target="_blank">My Résumé</a>
+            </li>
+          </ul>
+
+          <!-- Logo for Desktop (perfectly centered absolute element) -->
+          <a class="navbar-brand d-none d-lg-block m-0 p-0 text-center" href="index.html" style="flex: 0 0 auto;">
+            <img src="img/logo.webp" alt="chuong hoang logo" style="width: 6em;" />
+          </a>
+
+          <!-- Right links block (takes exactly 50% width and aligns links left) -->
+          <ul class="navbar-nav gap-lg-4 d-flex nav-right-links">
+            <!-- Menu item: About -->
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="about.html">The Protagonist</a>
+            </li>
+            <!-- Menu item: Photography -->
+            <li class="nav-item">
+              <a class="nav-link" href="photography.html">Photography</a>
+            </li>
+          </ul>
+
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+  </header>
 
-    <!---------- Navigation bar ends ---------->
+  <!---------- Navigation bar ends ---------->
 
-    <!-- Main -->
-    <main id="page-about">
-      <h2 id="page-about-title">
-        Oh hey ! So you're really interested in getting to know me. Parfait!
-      </h2>
-      <!-- General information and picture -->
-      <section id="about-general">
-        <img
-          id="about-portrait"
-          src="img/chuong-portrait.webp"
-          alt="Chuong's portrait image"
-        />
-        <p id="about-text-this-is-chuong">
-          This is Chuong—the protagonist of his portfolio.
-        </p>
-      </section>
-      <!-- Important information -->
-      <section id="about-important-info">
-        <!-- Current status -->
-        <div id="about-current-status">
-          <div id="current-box">
-            <p id="about-current-title">Currently, I am:</p>
-          </div>
-          <div id="about-current-content">
-            <p>
-              • Building digital products @
-              <a
-                class="hyperlink-hightlight"
-                href="https://finalpos.com"
-                target="_blank"
-                >Final POS</a
-              >, overlooking the Atlantic Ocean, and making friends with the
-              chubby seagulls of St. John's, Newfoundland.
-            </p>
-            <p>
-              • An intermediate French learner (B1 level), working toward
-              becoming trilingual and ready to charm my way through Montréal.
-            </p>
-          </div>
+  <!-- Main -->
+  <main id="page-about">
+    <h1 id="page-about-title">
+      <span class="italic-word">A Red Flag Designer 🇻🇳</span> <br>with many Side Quests
+    </h1>
+    <div class="about-tags-container">
+      <div class="about-tag">Product Designer @ FinalPOS</div>
+      <div class="about-tag">Learning French: somewhere between bonjour and fluent</div>
+      <div class="about-tag">Nature walks are non-negotiable</div>
+      <div class="about-tag">Cinematic photography collector</div>
+    </div>
+
+    <!-- General information and picture -->
+    <!-- <section id="about-general">
+      <img id="about-portrait" src="img/chuong-portrait.webp" alt="Chuong's portrait image" />
+      <p id="about-text-this-is-chuong">
+        This is Chuong—the protagonist of his portfolio.
+      </p>
+    </section> -->
+    <!-- Important information -->
+    <!-- <section id="about-important-info"> -->
+    <!-- Current status -->
+    <!-- <div id="about-current-status">
+        <div id="current-box">
+          <p id="about-current-title">Currently, I am:</p>
         </div>
-      </section>
-      <!-- about me -->
-      <section id="about-about-me">
-        <p>(Too long to read? but hey, you might like me if you know me)</p>
-        <!---------- REMEMBER MY NAME ---------->
-        <!-- Title -->
-        <h3 class="subpage-title-section">Remember my name</h3>
-        <!-- Content -->
-        <p>
-          <strong>Chuong</strong> is my name, and I recently realized it's
-          pretty tough for non-Vietnamese people to pronounce correctly. I’ve
-          thought about adopting an English name, but sometimes it just
-          doesn’t...feel like me. Interestingly, like most Vietnamese kids, I
-          have a nickname given by my beloved grandma—Gon. If you're into anime,
-          you might recognize it from
-          <a
-            class="hyperlink-normal"
-            href="https://www.crunchyroll.com/series/GY3VKX1MR/hunter-x-hunter?srsltid=AfmBOor4CckKYdOp6IReJyMcPoFSv1qdrWfbEYjc3RC6t-iuE-D9-I3e"
-            target="_blank"
-            >Hunter x Hunter</a
-          >! So call me Chuong or Gon—whichever you prefer, I’m happy with both!
-          <br />
-          <i
-            ><b>Fun Fact:</b> My very first Canadian Friend,
-            <a
-              class="hyperlink-normal"
-              href="https://www.linkedin.com/in/emma-kiesekamp-275b021a5/"
-              target="_blank"
-              >Emma Kiesekamp</a
-            >, said that my nickname was sooo cool, but she keeps calling me
-            Chuong, I don't know why.</i
-          >
-        </p>
-        <!-- image -->
-        <img
-          class="about-section-image"
-          src="img/remember-my-name.webp"
-          alt=""
-        />
-        <p>
-          <i
-            >Chuong, with his grandma who gave him a cool nickname and his
-            grandpa.</i
-          >
-        </p>
-        <!---------- MOM, I DON'T WANT TO BE A DOCTOR ---------->
-        <h3 class="subpage-title-section">Mom, I don't want to be a doctor!</h3>
-        <p>
-          Before becoming a UX Designer, my (Asian) mom always wanted me to
-          follow our family tradition and become a doctor. But becoming a doctor
-          was never what I wanted to be. Moreover, securing a spot in medical
-          school wasn’t easy at all. Reaching the age of 18, I applied to UEH
-          University (Flexing warning: one of the top universities in Vietnam)
-          and majored in International Business—wishfully thinking I would
-          travel the world and enjoy the journey (without any real intention of
-          doing business).
-        </p>
-        <p>
-          I was a creative child. I loved drawing and was pretty good at it. At
-          12 years old, I started learning how to create videos using my dad's
-          compact camera and some cracked video-editing software. Then, I began
-          experimenting with (also cracked) Photoshop to make it look like I was
-          traveling around the world in pictures. Although I later went to
-          Business School, I still recognized my passion for creative work. In
-          my second year, I enrolled in a few design courses to pursue that
-          passion and joined some university clubs to practice my skills. In
-          2018, I landed my first freelance job as a Graphic Designer, and I
-          still remember how happy and proud I was.
-        </p>
-        <!-- image -->
-        <img class="about-section-image" src="img/not-a-doctor.webp" alt="" />
-        <p>
-          <i
-            >Left: My mom and her little "definitely-not-a-doctor" baby. /
-            Right: A Bachelor's in International Business who knew exactly that
-            he wanted to be a UX designer.</i
-          >
-        </p>
-        <h3 class="subpage-title-section">Designer—that's what I want to be</h3>
-        <p>
-          Later, I shifted my focus from Graphic Design to UX Design because I
-          fell madly in love with how rational and complex it was. In early
-          2019, I taught myself UX Design by reading books and learning from
-          online sources. In September 2019, just two months after graduating, I
-          secured my first UX Design job at Swag Soft Holdings.
-        </p>
-        <!---------- I WANT TO BE MORE THAN JUST A DESIGNER ---------->
-        <h3 class="subpage-title-section">
-          Also, I want to be more than just a designer
-        </h3>
-        <p>
-          As a member of the "human beings", I also have passions. I practice
-          photography, play guitar and spend time learning French every day.
-          More than anything, I chose to leave my home and family behind to fly
-          all the way to Canada to follow my own dream in 2023, hopefully to
-          have a better future and a better-self.
-        </p>
-        <p>
-          Sometimes, I’m too focused on reaching my dreams that I forget I’m an
-          immortal human too—I need to live life, not just survive. I probably
-          wouldn’t have made it through the sorrowful Canadian winter or doom days without my
-          dear international and Canadian friends. Big thanks to them.
-        </p>
-        <!-- image
+        <div id="about-current-content">
+          <p>
+            • Building digital products @
+            <a class="hyperlink-hightlight" href="https://finalpos.com" target="_blank">Final POS</a>, overlooking the
+            Atlantic Ocean, and making friends with the
+            chubby seagulls of St. John's, Newfoundland.
+          </p>
+          <p>
+            • An intermediate French learner (B1 level), working toward
+            becoming trilingual and ready to charm my way through Montréal.
+          </p>
+        </div>
+      </div> -->
+    <!-- </section> -->
+    <!-- about me -->
+    <section id="about-about-me">
+      <p>(Too long to read? but hey, you might like me if you know me)</p>
+      <!---------- REMEMBER MY NAME ---------->
+      <!-- Title -->
+      <h3 class="subpage-title-section">Remember my name</h3>
+      <!-- Content -->
+      <p>
+        <strong>Chuong</strong> is my name, and I recently realized it's
+        pretty tough for non-Vietnamese people to pronounce correctly. I’ve
+        thought about adopting an English name, but sometimes it just
+        doesn’t...feel like me. Interestingly, like most Vietnamese kids, I
+        have a nickname given by my beloved grandma—Gon. If you're into anime,
+        you might recognize it from
+        <a class="hyperlink-normal"
+          href="https://www.crunchyroll.com/series/GY3VKX1MR/hunter-x-hunter?srsltid=AfmBOor4CckKYdOp6IReJyMcPoFSv1qdrWfbEYjc3RC6t-iuE-D9-I3e"
+          target="_blank">Hunter x Hunter</a>! So call me Chuong or Gon—whichever you prefer, I’m happy with both!
+        <br />
+        <i><b>Fun Fact:</b> My very first Canadian Friend,
+          <a class="hyperlink-normal" href="https://www.linkedin.com/in/emma-kiesekamp-275b021a5/" target="_blank">Emma
+            Kiesekamp</a>, said that my nickname was sooo cool, but she keeps calling me
+          Chuong, I don't know why.</i>
+      </p>
+      <!-- image -->
+      <img class="about-section-image" src="img/remember-my-name.webp" alt="" />
+      <p>
+        <i>Chuong, with his grandma who gave him a cool nickname and his
+          grandpa.</i>
+      </p>
+      <!---------- MOM, I DON'T WANT TO BE A DOCTOR ---------->
+      <h3 class="subpage-title-section">Mom, I don't want to be a doctor!</h3>
+      <p>
+        Before becoming a UX Designer, my (Asian) mom always wanted me to
+        follow our family tradition and become a doctor. But becoming a doctor
+        was never what I wanted to be. Moreover, securing a spot in medical
+        school wasn’t easy at all. Reaching the age of 18, I applied to UEH
+        University (Flexing warning: one of the top universities in Vietnam)
+        and majored in International Business—wishfully thinking I would
+        travel the world and enjoy the journey (without any real intention of
+        doing business).
+      </p>
+      <p>
+        I was a creative child. I loved drawing and was pretty good at it. At
+        12 years old, I started learning how to create videos using my dad's
+        compact camera and some cracked video-editing software. Then, I began
+        experimenting with (also cracked) Photoshop to make it look like I was
+        traveling around the world in pictures. Although I later went to
+        Business School, I still recognized my passion for creative work. In
+        my second year, I enrolled in a few design courses to pursue that
+        passion and joined some university clubs to practice my skills. In
+        2018, I landed my first freelance job as a Graphic Designer, and I
+        still remember how happy and proud I was.
+      </p>
+      <!-- image -->
+      <img class="about-section-image" src="img/not-a-doctor.webp" alt="" />
+      <p>
+        <i>Left: My mom and her little "definitely-not-a-doctor" baby. /
+          Right: A Bachelor's in International Business who knew exactly that
+          he wanted to be a UX designer.</i>
+      </p>
+      <h3 class="subpage-title-section">Designer—that's what I want to be</h3>
+      <p>
+        Later, I shifted my focus from Graphic Design to UX Design because I
+        fell madly in love with how rational and complex it was. In early
+        2019, I taught myself UX Design by reading books and learning from
+        online sources. In September 2019, just two months after graduating, I
+        secured my first UX Design job at Swag Soft Holdings.
+      </p>
+      <!---------- I WANT TO BE MORE THAN JUST A DESIGNER ---------->
+      <h3 class="subpage-title-section">
+        Also, I want to be more than just a designer
+      </h3>
+      <p>
+        As a member of the "human beings", I also have passions. I practice
+        photography, play guitar and spend time learning French every day.
+        More than anything, I chose to leave my home and family behind to fly
+        all the way to Canada to follow my own dream in 2023, hopefully to
+        have a better future and a better-self.
+      </p>
+      <p>
+        Sometimes, I’m too focused on reaching my dreams that I forget I’m an
+        immortal human too—I need to live life, not just survive. I probably
+        wouldn’t have made it through the sorrowful Canadian winter or doom days without my
+        dear international and Canadian friends. Big thanks to them.
+      </p>
+      <!-- image
         <img
           class="about-section-image"
           src="img/more-than-designer.webp"
@@ -221,90 +202,66 @@
           <i
             >Amaan and I have reached a point where we can skate and chat at the
             same time now. -->
-          </i>
-        </p>
-        <!-- I feel Blessed -->
-        <h3 class="subpage-title-section">And I feel blessed</h3>
-        <blockquote>
-          "Being accepted by others is a reminder to offer that same grace in
-          return."
-        </blockquote>
-        <p>
-          ...That was what my grandma said when I told her I wouldn’t be able to
-          be with anyone in this life, because I know how strict I am with
-          myself and with others. Of course, the English version only partly
-          captures the meaning in Vietnamese—after all, “traduire, c’est trahir”
-          (to translate is to betray). Anyways, her words have stuck in my head
-          ever since, and they’ve become a part of who I am today. Probably
-          thanks to that, I’ve built many great relationships with others.
-        </p>
+      </i>
+      </p>
+      <!-- I feel Blessed -->
+      <h3 class="subpage-title-section">And I feel blessed</h3>
+      <blockquote>
+        "Being accepted by others is a reminder to offer that same grace in
+        return."
+      </blockquote>
+      <p>
+        ...That was what my grandma said when I told her I wouldn’t be able to
+        be with anyone in this life, because I know how strict I am with
+        myself and with others. Of course, the English version only partly
+        captures the meaning in Vietnamese—after all, “traduire, c’est trahir”
+        (to translate is to betray). Anyways, her words have stuck in my head
+        ever since, and they’ve become a part of who I am today. Probably
+        thanks to that, I’ve built many great relationships with others.
+      </p>
 
-        <p>
-          Let me end this self-pitch with my 2025 resolutions:<i>
-            "Challenge myself to do something uncomfortable every day"</i
-          >
-          and
-          <i>"have the courage to ask for what I want".</i> I hope you feel like
-          you know me a little bit now, but just so you know—I’m much more
-          interesting than what I’ve just told you. I love tea—Both herbal and
-          verbal, get in touch with me via
-          <a
-            class="hyperlink-hightlight"
-            href="https://www.linkedin.com/in/chuong-hoang-ux-design/"
-            target="_blank"
-            >my Linkedin</a
-          >
-          and I'll
-          <a
-            class="hyperlink-normal"
-            href="https://www.bbc.co.uk/learningenglish/features/the-english-we-speak/ep-200608"
-            target="_blank"
-            >spill more tea</a
-          >
-          about myself, so I can go from being "just another designer out there"
-          to "Chuong – a designer you actually know."
-        </p>
-      </section>
-    </main>
-    <!-- Main ends -->
-    <!-- Footer starts -->
-    <footer>
-      <!---------- SECTION: CONTACT ---------->
-      <section id="contact">
-        <p id="contact-asterisk">*</p>
-        <h2 id="contact-title">
-          Chat with me until my social battery runs out!
-        </h2>
-        <a href="mailto:chuonghoang.ca@gmail.com" id="contact-email"
-          >chuonghoang.ca@gmail.com</a
-        >
-        <p id="social-media">
-          Visit my
-          <a
-            id="linkedin"
-            href="https://www.linkedin.com/in/chuong-hoang-ux-design/"
-            target="_blank"
-            >Linkedin</a
-          >,
-          <a
-            id="behance"
-            href="https://www.behance.net/chuonghoang"
-            target="_blank"
-            >Behance</a
-          >
-          and
-          <a id="vimeo" href="https://vimeo.com/user224052351" target="_blank"
-            >Vimeo</a
-          >
-        </p>
-      </section>
-      <p>© Chuong has been grinding day and night on this site since 2023.</p>
-    </footer>
+      <p>
+        Let me end this self-pitch with my 2025 resolutions:<i>
+          "Challenge myself to do something uncomfortable every day"</i>
+        and
+        <i>"have the courage to ask for what I want".</i> I hope you feel like
+        you know me a little bit now, but just so you know—I’m much more
+        interesting than what I’ve just told you. I love tea—Both herbal and
+        verbal, get in touch with me via
+        <a class="hyperlink-hightlight" href="https://www.linkedin.com/in/chuong-hoang-ux-design/" target="_blank">my
+          Linkedin</a>
+        and I'll
+        <a class="hyperlink-normal" href="https://www.bbc.co.uk/learningenglish/features/the-english-we-speak/ep-200608"
+          target="_blank">spill more tea</a>
+        about myself, so I can go from being "just another designer out there"
+        to "Chuong – a designer you actually know."
+      </p>
+    </section>
+  </main>
+  <!-- Main ends -->
+  <!-- Footer starts -->
+  <footer>
+    <!---------- SECTION: CONTACT ---------->
+    <section id="contact">
+      <p id="contact-asterisk">*</p>
+      <h2 id="contact-title">
+        Chat with me until my social battery runs out!
+      </h2>
+      <a href="mailto:chuonghoang.ca@gmail.com" id="contact-email">chuonghoang.ca@gmail.com</a>
+      <p id="social-media">
+        Visit my
+        <a id="linkedin" href="https://www.linkedin.com/in/chuong-hoang-ux-design/" target="_blank">Linkedin</a>,
+        <a id="behance" href="https://www.behance.net/chuonghoang" target="_blank">Behance</a>
+        and
+        <a id="vimeo" href="https://vimeo.com/user224052351" target="_blank">Vimeo</a>
+      </p>
+    </section>
+    <p>© Chuong has been grinding day and night on this site since 2023.</p>
+  </footer>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
