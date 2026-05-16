@@ -109,7 +109,7 @@
               <p class="tag">UX Design Case Study</p>
               <p class="tag">2023</p>
               <!-- button view project -->
-              <a class="button-view-project" href="ux-diag.html">View Project</a>
+              <a class="button-view-project" href="#project-diag">View Project</a>
             </div>
           </div>
         </div>
@@ -125,7 +125,7 @@
               <p class="tag">UX Design Case Study</p>
               <p class="tag">2022</p>
               <!-- button view project -->
-              <a class="button-view-project" href="ux-slaola.html">View Project</a>
+              <a class="button-view-project" href="#project-slaola">View Project</a>
             </div>
           </div>
         </div>
@@ -205,7 +205,7 @@
               <p class="tag">2025</p>
               <!-- button view project -->
               <!-- button view project -->
-              <a class="button-view-project" href="research-incavico.html">View Project</a>
+              <a class="button-view-project" href="#project-incavico">View Project</a>
               <!-- <a class="button-view-project-disabled">Coming Soon</a> -->
             </div>
           </div>
@@ -221,7 +221,7 @@
               <p class="tag">UX Research</p>
               <p class="tag">2024</p>
               <!-- button view project -->
-              <a class="button-view-project" href="research-centralized-calendar.html">View Project</a>
+              <a class="button-view-project" href="#project-calendar">View Project</a>
             </div>
           </div>
         </div>
@@ -232,26 +232,305 @@
 
   <!-- Footer -->
   <footer>
-    <!---------- SECTION: CONTACT ---------->
-    <section id="contact">
-      <p id="contact-asterisk">*</p>
-      <h2 id="contact-title">
-        Chat with me until my social battery runs out!
-      </h2>
-      <a href="mailto:chuonghoang.ca@gmail.com" id="contact-email">chuonghoang.ca@gmail.com</a>
-      <p id="social-media">
-        Visit my
-        <a id="linkedin" href="https://www.linkedin.com/in/chuong-hoang-ux-design/" target="_blank">Linkedin</a>,
-        <a id="behance" href="https://www.behance.net/chuonghoang" target="_blank">Behance</a>
-        and
-        <a id="vimeo" href="https://vimeo.com/user224052351" target="_blank">Vimeo</a>
-      </p>
-    </section>
-    <p>© Chuong has been grinding day and night on this site since 2023.</p>
+    <p class="eyebrow">
+      <span class="coffee-dot"></span>
+      Based in Canada
+    </p>
+    <h2>
+      Let's grab a coffee<br>
+      or build something <em>extraordinaire.</em>
+    </h2>
+    <p class="sub">
+      Whether you have a project in mind or just want to chat —
+      I'm always happy to connect.
+    </p>
+    <div class="cta-row">
+      <a href="mailto:chuonghoang.ca@gmail.com" class="button-footer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7" /><rect x="3" y="5" width="18" height="14" rx="2" /></svg>
+        Send an email
+      </a>
+      <a href="https://www.linkedin.com/in/chuong-hoang-ux-design/" target="_blank" class="button-footer button-linkedin">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="4" />
+          <path d="M8 11v5" />
+          <path d="M8 8v.01" />
+          <path d="M12 16v-5" />
+          <path d="M16 16v-3a2 2 0 0 0-4 0" />
+        </svg>
+        LinkedIn
+      </a>
+    </div>
+    <p class="copyright">
+      © Chuong has been grinding day and night on this site since 2023.
+    </p>
   </footer>
+
+  <!-- ========== PROJECT MODAL: DIAG ========== -->
+  <div id="project-diag" class="project-modal">
+    <div class="project-modal-content">
+      <a href="#!" class="project-modal-back">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M15 10H5M5 10L10 5M5 10L10 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <h2 class="subpage-title">Case Study | Improving the Doctor Web Portal to enhance learnability and work proficiency.</h2>
+      <div class="subpage-project-info">
+        <div class="block-data-value">
+          <div class="data-value"><p class="data">ROLE:</p><p class="value">UX Designer</p></div>
+          <div class="data-value"><p class="data">TIMELINE:</p><p class="value">April - June, 2023</p></div>
+          <div class="data-value"><p class="data">DELIVERABLES:</p><p class="value">Website Design</p></div>
+        </div>
+      </div>
+      <h3 class="subpage-title-section">Introduction</h3>
+      <p>A few years ago, <strong>Diag Pro</strong> was a tool that doctors collaborating with Diag used to view patients' test results only. Over time, due to real needs of doctors, Diag has been introducing more features. Until now, doctors can:<br />• Give test orders (or prescriptions) to patients online.<br />• View patient results online.<br />• Check the test library when consulting patients online.<br />• View created orders (prescriptions) of every month online.</p>
+      <img class="subpage-image" src="img/ux-diag-web.webp" alt="diag's website on desktop and mobile" />
+      <h3 class="subpage-title-section">The Problem</h3>
+      <p>In March 2023, the product owner reviewed data from Mix Panel and made an interesting discovery: <i>"70% of doctors created their first digital test order for a patient one month after being onboarded by the sales team of Diag. However, at that time, the doctors barely remembered how to do so."- whispered by the product owner.</i></p>
+      <p>With this insight in mind, the Customer Success team met with doctors to learn more about their problems and needs. During these meetings, doctors expressed their concerns: <i>"We are unsure of how to create new orders for patients and use other features. We have no time to explore these features because we are always busy with patients. Therefore, we prefer to give test orders on paper instead."</i></p>
+      <h3 class="subpage-title-section">Goal</h3>
+      <p>Based on these insights, the product team has decided to improve the website's user experience for doctors who use the website infrequently or for the first time.</p>
+      <p>For product:<br />• Making the homepage more intuitive and interesting for doctors when they log in for the first time so that they can easily use any function without hesitation.</p>
+      <p>For Business:<br />• Attracting more doctors to join Diag by improving the service and tool.<br />• Encouraging more doctors to use the website instead of handwritten methods.</p>
+      <h3 class="subpage-title-section">Design process</h3>
+      <h5 class="subpage-title-section">1. Design process</h5>
+      <p><strong>Step 1:</strong> Discussed with Product team to understand the problem.<br /><strong>Step 2:</strong> Determined user user personas.<br /><strong>Step 3:</strong> Ideated and conducting the secondary research.<br /><strong>Step 4:</strong> Created lo-fi wireframes, presenting them to the entire product team, and gathering feedback.<br /><strong>Step 5:</strong> Created mockups and handing them off to the Scrum team. Meanwhile, following up and troubleshooting any abrupt problems.<br /><strong>Step 6:</strong> Reviewed the UI after the feature has been deployed.</p>
+      <h5 class="subpage-title-section">2. Final Design</h5>
+      <p>Before:</p>
+      <img class="subpage-image" src="img/ux-diag-home-old.webp" alt="Diag's Home page before redesigning" />
+      <p>After:</p>
+      <img class="subpage-image" src="img/ux-diag-home-new.webp" alt="Diag's Home page after redesigning" />
+      <h3 class="subpage-title-section">Result</h3>
+      <p>The recent design improvements have garnered positive feedback from both the internal and external members of the product team.</p>
+      <p>However, to ensure continued success, it is essential to maintain close communication with doctors and receive their valuable feedbacks. By actively listening to their insights and incorporating their suggestions, we can further enhance the design to better meet their needs and expectations. Continuous improvement is key to delivering an exceptional user experience for our product.</p>
+    </div>
+  </div>
+
+  <!-- ========== PROJECT MODAL: SLA-OLA ========== -->
+  <div id="project-slaola" class="project-modal">
+    <div class="project-modal-content">
+      <a href="#!" class="project-modal-back">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M15 10H5M5 10L10 5M5 10L10 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <h2 class="subpage-title">Implementing SLAs and OLAs to Help Call Agents Track Tasks and Improve Accountability.</h2>
+      <div class="subpage-project-info">
+        <div class="block-data-value">
+          <div class="data-value"><p class="data">ROLE:</p><p class="value">UX Designer</p></div>
+          <div class="data-value"><p class="data">TIMELINE:</p><p class="value">May - July, 2022</p></div>
+          <div class="data-value"><p class="data">DELIVERABLES:</p><p class="value">Website Design</p></div>
+        </div>
+        <div class="block-project-overview">
+          <div class="data-value">
+            <p class="data">PROJECT OVERVIEW:</p>
+            <p class="value-longtext">The SLA/OLA feature is part of a digital product called Merchant, one of several tools within an ecosystem designed for call centres. This feature was developed to help call centre agents manage their tasks more effectively. It displays the remaining time directly on the interface, showing both the time agreed upon internally to resolve each inquiry and the time agents have left to meet those expectations for callers representing merchants. The project was delivered in collaboration with a cross-functional team, including a product owner, developers, and quality assurance specialists.</p>
+          </div>
+        </div>
+      </div>
+      <h3 class="subpage-title-section">Introduction</h3>
+      <p>During my time at <a class="hyperlink-normal" href="https://aperia.com" target="_blank">Aperia</a>, I worked as a UX Designer on a digital product called Merchant. Merchant is one of the applications within a call centre ecosystem called Client360. In the diagram below, I've illustrated how Merchant fits into the Client360 ecosystem.</p>
+      <img class="subpage-image" src="img/ux-sla-ola-products.webp" alt="The chart shows the product Chuong works on amongst other products." />
+      <h3 class="subpage-title-section">Context</h3>
+      <p>Assume that one day, the Manager of KFC calls Bank of America to inquire about the current transaction because something appears to be incorrect. Because Bank of America outsourced the call center service, all calls will be received and answered by call center agents via Client360.</p>
+      <p>When the agent answers the phone, the KFC manager describes the nature of the call and requests assistance. The agent will enter the call information into the Merchant CRM and create an inquiry. When the inquiry is successfully created, it will be handled by a specific team.</p>
+      <img class="subpage-image" src="img/ux-slaola-context.webp" alt="Illustration shows the context when to use the Merchant CRM." />
+      <h3 class="subpage-title-section">The Problem</h3>
+      <p>Each call centre agent receives up to 50 inquiries per day, contributing to hundreds of unresolved cases stored in the Merchant CRM. These inquiries vary in priority. Some are urgent and require immediate attention, while others can be addressed later. However, agents sometimes overlook these distinctions, leading to delays that can negatively impact business performance.</p>
+      <img class="subpage-image" src="img/ux-sla-ola-problem.webp" alt="The chart shows the product Chuong works on amongst other products." />
+      <h3 class="subpage-title-section">Goal</h3>
+      <p>The goal was to ensure that agents consistently resolve inquiries based on priority, starting with the most urgent. To address this, I collaborated closely with the product owner after receiving the problem statement from our client. Together, we explored possible solutions through extensive desk research and discussions. Ultimately, we decided to implement an SLA and OLA feature, similar to those used in other products on the market, to address the problem.</p>
+      <p>But, what are SLA and OLA?</p>
+      <p>• SLA (Service Level Agreement) is a formal agreement between the client (Merchant) and the service provider. It ensures that the provider's agents complete their tasks within a specified timeframe. If they fail to do so, they may face penalties.</p>
+      <p>• OLA (Operational Level Agreement) is an internal agreement within a team. It defines the expected timeframes for completing tasks to support the commitments made in the SLA.</p>
+      <h3 class="subpage-title-section">So, what did I do exactly?</h3>
+      <p>To solve the problem, I first worked closely with the Product Owner to clarify the client's ambiguous requirements. We aligned on the goals and defined what success would look like.</p>
+      <p>Next, I conducted secondary research to understand how other products in the market handled similar challenges, using those insights to guide our approach.</p>
+      <p>Once the direction was clear, I sketched out low-fidelity wireframes to visualize the SLA/OLA feature and presented them to stakeholders for feedback. This helped us align early and make informed design decisions.</p>
+      <img class="subpage-image" src="img/ux-sla-ola-wireframe.webp" alt="SLA OLA feature is shown on the interface of the Merchant CRM." />
+      <p><i>Image 1: The wireframe above shows the concept I designed based on discussions with the Product Owner and client feedback.</i></p>
+      <p>I then designed the final high-fidelity mockups, integrating the SLA/OLA feature directly into the Merchant CRM interface to help agents prioritize their tasks more effectively.</p>
+      <p>After handing off the designs to the scrum team, I stayed involved throughout the development process by following up regularly and offering support whenever the team encountered questions or blockers.</p>
+      <img class="subpage-image" src="img/ux-slaola-final-design.webp" alt="SLA OLA feature is shown on the interface of the Merchant CRM." />
+      <p><i>Image 2: The final design of the SLA/OLA feature was integrated and visualized within the Merchant CRM interface.</i></p>
+      <h3 class="subpage-title-section">Result</h3>
+      <p>The client gave positive feedback on the feature, saying the design was clear and easy to spot while working on tasks. It also helped boost the agents' confidence because they knew they had a tool to support them in managing their workload.</p>
+      <h3 class="subpage-title-section">Challenges and Limitations</h3>
+      <p>One of the main challenges I faced was interpreting and clarifying ambiguous requirements from the client. The initial problem statement lacked detail, so I worked closely with the Product Owner to dig deeper and ensure we were solving the right problem. Another key challenge was defining clear logic for the SLA/OLA feature. Since the feature impacted how agents prioritized tasks, it was crucial to make sure the behavior was well-defined and aligned with business expectations.</p>
+      <p>A major limitation of the project was that we were unable to gather direct user feedback on the SLA/OLA feature. Due to time and access constraints, we had to rely on stakeholder insights and secondary research to guide our design decisions.</p>
+    </div>
+  </div>
+
+  <!-- ========== PROJECT MODAL: INCAVICO ========== -->
+  <div id="project-incavico" class="project-modal">
+    <div class="project-modal-content">
+      <a href="#!" class="project-modal-back">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M15 10H5M5 10L10 5M5 10L10 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <h2 class="subpage-title">Bridging the Gap: Engage Urban Youth in Ottawa Recreation</h2>
+      <div class="subpage-project-info">
+        <div class="block-data-value">
+          <div class="data-value"><p class="data">ROLE:</p><p class="value">UX Researcher</p></div>
+          <div class="data-value"><p class="data">TIMELINE:</p><p class="value">8 months - From September 2024 to April, 2025</p></div>
+          <div class="data-value"><p class="data">DELIVERABLES:</p><p class="value">Research findings and service design solutions</p></div>
+        </div>
+        <div class="block-project-overview">
+          <div class="data-value">
+            <p class="data">PROJECT OVERVIEW:</p>
+            <p class="value-longtext">The City of Ottawa has raised concerns about the low participation of youth in its recreational programs. To investigate this issue, this study explored the barriers preventing youth aged 18–25 in five priority Ottawa neighbourhoods from engaging with city-run recreation programs. Our findings reveal three primary challenges: a lack of accessible and affordable recreational spaces, a lack of flexibility in programming, and ineffective communication strategies. In response, this research introduces a three-phase intervention aimed at improving engagement. The project was conducted collaboratively by <a class="hyperlink-normal" href="https://www.linkedin.com/in/chuong-hoang-ux-design/" target="_blank">Chuong Hoang</a>, <a class="hyperlink-normal" href="https://www.linkedin.com/in/emma-kiesekamp-275b021a5/" target="_blank">Emma Kiesekamp</a>, <a class="hyperlink-normal" href="https://www.linkedin.com/in/maria-montanoh/" target="_blank">Maria Montano</a>, <a class="hyperlink-normal" href="https://www.linkedin.com/in/amaan-ahmedabadi-ux-designer/" target="_blank">Amaan Ahmedabadi</a>, and <a class="hyperlink-normal" href="https://www.linkedin.com/in/harsh-saini-22a43a2a6/" target="_blank">Harsh Saini</a>.</p>
+          </div>
+        </div>
+      </div>
+      <h3 class="subpage-title-section">Visual Summary of Research Study</h3>
+      <img class="subpage-image" src="img/research-incavico-poster.webp" alt="Incavico Research Study Poster" />
+      <h3 class="subpage-title-section">1. Why do we start this project?</h3>
+      <p>In September 2024, Brent McQueen, Molly Cook, and Carlos Ramos from the Recreation, Cultural and Facility Services (RCFS) of the City of Ottawa expressed concerns about the youth who are not actively participating in recreational activities provided by the city in their community centres.</p>
+      <p>This research focuses on youth in five urban neighbourhoods of Ottawa: Britannia, Carlington, Lower Town, Overbrook, and Sandy Hill. These neighbourhoods are considered high priority because the gap between youth and recreation programs is larger than in other neighbourhoods in the urban areas according to our client.</p>
+      <p>This study focuses on youth aged 18 to 25, regardless of their enrolment status in a post-secondary institution.</p>
+      <h5 class="subpage-title-section">What's next...</h5>
+      <p>A follow-up literature review highlighted the relationship between newcomers to Canada and recreation spaces/programs. While many newcomers are eager to participate in sports and physical activities, they often encounter unique challenges, particularly with time and cost.</p>
+      <h5 class="subpage-title-section">Research goals and objectives</h5>
+      <p>The goal of this study is to examine the factors that discourage youth aged 18 to 25 from enrolling in municipal recreation programs. The research question: <b><i>What factors facilitate an interactive and social experience amongst urban youth?</i></b></p>
+      <p>In doing so, the research objectives are to:</p>
+      <ul>
+        <li>Explore if the current communication channels resonate with post-secondary youth.</li>
+        <li>Understand what youth are looking for when it comes to organized recreation/leisure activities.</li>
+        <li>Explore the values youth desire from recreational activities to help positively impact their lives.</li>
+        <li>Understand the extent to which financial barriers influence youth participation in recreational activities.</li>
+        <li>Understand how leisure activities fall into youths' lifestyles.</li>
+      </ul>
+      <h3 class="subpage-title-section">2. Research Methodology</h3>
+      <p>A mixed-methods approach was used to collect both qualitative and quantitative data from youth aged 18 to 25 residing in urban Ottawa. The study was divided into three phases:</p>
+      <ul>
+        <li><b>Phase 1:</b> A screener survey</li>
+        <li><b>Phase 2:</b> Semi-structured interviews with youth participants and Subject Matter Experts (SMEs).</li>
+        <li><b>Phase 3:</b> Design validation interviews with youth and SMEs.</li>
+      </ul>
+      <h3 class="subpage-title-section">3. Findings</h3>
+      <img class="subpage-image" src="img/research-incavico-stats.webp" alt="research stats" />
+      <p>Through our research, which included 72 surveys and 10 participant interviews, along with 8 SME additional interviews, we identified key pain points experienced by our users.</p>
+      <h5 class="subpage-title-section">Persona of the youth</h5>
+      <img class="subpage-image" src="img/research-incavico-meet-the-youth.webp" alt="persona of the youth" />
+      <h5 class="subpage-title-section">Factors hinder youth's participation</h5>
+      <p>Our findings revealed three major gaps between the city and its youth:</p>
+      <ul>
+        <li><b>Social Spaces:</b> Many recreational spaces are not easily accessible or budget-friendly, making participation difficult.</li>
+        <li><b>Flexibility:</b> Youth often have unpredictable schedules due to school and work. Programs that lack flexibility create barriers to participation.</li>
+        <li><b>Awareness:</b> There is limited awareness of available programs. Youth mainly rely on social media and word-of-mouth, yet current outreach strategies don't effectively use these channels.</li>
+      </ul>
+      <h3 class="subpage-title-section">4. Intervention</h3>
+      <p>Based on the insights and from our system map analysis, we identified that the most immediate and effective solution lies in reimagining the role of community centers.</p>
+      <img class="subpage-image" src="img/research-incavico-ecosystem-map.webp" alt="ecosystem map" />
+      <p><i>System map illustrating the principal actors and their relationships. Pain points to be improved are highlighted in red</i></p>
+      <h5 class="subpage-title-section">A Scalable Three-Phase Intervention Framework</h5>
+      <p>Our proposed solution is a scalable, three-phase approach designed for long-term impact. It empowers community centers to better engage youth through co-creation, active participation, and the cultivation of a strong sense of belonging.</p>
+      <img class="subpage-image" src="img/research-incavico-scalable-intervention.webp" alt="3-phrase intervention" />
+      <p><b>Phase 1: Awareness &amp; Co-Creation</b></p>
+      <p>The first phase begins with the implementation of a practical and adaptable Youth Engagement Toolkit, designed to equip community centers with the tools they need to meaningfully connect with youth and co-create relevant recreational offerings.</p>
+      <img class="subpage-image" src="img/research-incavico-toolkit.webp" alt="Incavico Research Study Poster" />
+      <p><b>Phase 2: Strengthening Participation</b></p>
+      <p>As co-creation initiatives gain momentum, the youth engagement group grows stronger, inviting more young people to get involved. Youth begin to contribute ideas for improvements to infrastructure, equipment, virtual platforms, and communication strategies within their community centres.</p>
+      <p><b>Phase 3: Establishing the Youth Hub</b></p>
+      <p>The final phase establishes a true "Third Place" for youth in Ottawa—a space that exists beyond home and school/work, where young people feel welcomed, seen, and connected.</p>
+      <p>The following link provides a detailed description of the toolkit guide and its potential for scalability: <a class="hyperlink-normal" href="https://drive.google.com/file/d/1pDsKsmjboYoVInQz0TCrdZdS0xneqZGX/view?usp=sharing" target="_blank">View Youth Hub Framework</a></p>
+      <h3 class="subpage-title-section">5. Limitations</h3>
+      <p>The main constraint within this research was the researchers' inability to conduct interviews with participants who took part in the City of Ottawa recreational programs. The brief collection period and narrow scope of the study limited researchers from conducting an extensive analysis.</p>
+      <h3 class="subpage-title-section">6. Learnings</h3>
+      <p>This research study was my first experience conducting an end-to-end research process, and it provided a clear understanding of how to move from vague problem areas to actionable design solutions. I learned how to plan a research study in alignment with Research and Ethics Board (REB) guidelines, ensuring ethical and responsible practices throughout. Most importantly, I learned how to design service design interventions based on research insights to effectively address complex problems.</p>
+    </div>
+  </div>
+
+  <!-- ========== PROJECT MODAL: CENTRALIZED CALENDAR ========== -->
+  <div id="project-calendar" class="project-modal">
+    <div class="project-modal-content">
+      <a href="#!" class="project-modal-back">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M15 10H5M5 10L10 5M5 10L10 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <h2 class="subpage-title">A Centralized Calendar for Algonquin College Students</h2>
+      <div class="subpage-project-info">
+        <div class="block-data-value">
+          <div class="data-value"><p class="data">ROLE:</p><p class="value">UX Research</p></div>
+          <div class="data-value"><p class="data">TIMELINE:</p><p class="value">September - December, 2024</p></div>
+          <div class="data-value"><p class="data">DELIVERABLES:</p><p class="value">Research Findings and Recommendations</p></div>
+        </div>
+        <div class="block-project-overview">
+          <div class="data-value">
+            <p class="data">PROJECT OVERVIEW:</p>
+            <p class="value-longtext">This project was part of the UX Research course of the Interdisciplinary Human-Centred Design Program at Algonquin College. Its primary goal was to apply research skills to explore the experiences of new Algonquin students in managing academic and personal tasks using multiple college calendars. The project was conducted collaboratively by <a class="hyperlink-normal" href="https://www.linkedin.com/in/chuong-hoang-ux-design/" target="_blank">Chuong Hoang</a>, <a class="hyperlink-normal" href="https://www.linkedin.com/in/amaan-ahmedabadi-ux-designer/" target="_blank">Amaan Ahmedabadi</a>, <a class="hyperlink-normal" href="https://www.linkedin.com/in/maria-montanoh/" target="_blank">Maria Montano</a>, and <a class="hyperlink-normal" href="https://www.linkedin.com/in/pragya-gouti/" target="_blank">Pragya Gouti</a>.</p>
+          </div>
+        </div>
+      </div>
+      <h3 class="subpage-title-section">1. Why do we start this project?</h3>
+      <h5 class="subpage-title-section">1.1 The Problem</h5>
+      <p>The onboarding process plays a vital role in helping new students at Algonquin College transition smoothly, especially international students. Algonquin College offers various calendars to help students track academic and campus events. However, new students may struggle to familiarize themselves with multiple college-provided calendars from the beginning.</p>
+      <img class="subpage-image" src="img/problem-in-a-nutshell.webp" alt="problem in a nutshell" />
+      <h5 class="subpage-title-section">1.2 Goals and objectives</h5>
+      <p>This study explores the issue by examining task planning habits, analyzing user experiences with multiple calendars, identifying pain points and barriers, and proposing solutions. This study aims to answer the question: <i>"What experiences do new students at Algonquin College have when navigating and using multiple college-provided calendars to manage their academic activities, extracurricular engagements, social events, and personal tasks?"</i></p>
+      <ul>
+        <li><b>Objective 1:</b> Identify the method students use to manage schedules, their preferences, usage frequency, and awareness of college calendars.</li>
+        <li><b>Objective 2:</b> Explore student's experiences with multiple calendars, including tool choices, challenges, and key features they rely on.</li>
+        <li><b>Objective 3:</b> Assess student's views on college calendars, focusing on difficulties, coping strategies, and suggestions for improvement.</li>
+      </ul>
+      <h3 class="subpage-title-section">2. Methods and participants</h3>
+      <h5 class="subpage-title-section">2.1 Methods</h5>
+      <p>Survey and semi-structured interview were used in this study to collect quantitative and qualitative data, respectively.</p>
+      <p><b>Why Survey?</b></p>
+      <ul>
+        <li>Was used to collect quantitative data about users.</li>
+        <li>Out of 127 survey responses, 102 useful responses were analyzed.</li>
+      </ul>
+      <p><b>Why interview?</b></p>
+      <ul>
+        <li>Was used to collect qualitative data about users.</li>
+        <li>12 interviews were scheduled, both in-person and virtually, with 10 successfully conducted.</li>
+      </ul>
+      <h5 class="subpage-title-section">2.2 Participants</h5>
+      <p>The participants for this research are the new Algonquin College students who are in their first semester (level 1).</p>
+      <h3 class="subpage-title-section">3. Findings and Recommendations</h3>
+      <div>
+        <p><b>Finding 1: Students struggle with using multiple tools to manage their tasks and prefer an integrated platform.</b></p>
+        <p>Students struggle with managing tasks across multiple disconnected tools, leading to inefficiencies and missed academic deadlines or important events.</p>
+        <p class="highlight-text"><b>Recommendation:</b> A centralized calendar system should be implemented to help students arrange their tasks and activities. This system should incorporate institutional tools together with personal calendars such as Google Calendar and Apple Calendar.</p>
+      </div>
+      <div>
+        <p><b>Finding 2: Students rely on certain calendar features to manage their tasks effectively.</b></p>
+        <p>Students highly value platforms that enhance task management, with Pulse standing out for its "Upcoming" visual tracker, notifications, and reminders.</p>
+        <p class="highlight-text"><b>Recommendation:</b> To boost student engagement and productivity, existing platforms or a future centralised system should integrate visual tools like task progress graphs, timeline views, and smart reminders.</p>
+      </div>
+      <div>
+        <p><b>Finding 3: Students are busy balancing their academic and personal lives.</b></p>
+        <p>Students juggle academic responsibilities, extracurricular activities, and social events. Their scheduling approach prioritises flexibility, emphasising daily and weekly planning over long-term commitments.</p>
+        <p class="highlight-text"><b>Recommendation:</b> College-provided calendars should be seamlessly synchronised across multiple devices, including phones, laptops, and tablets, ensuring easy access in various contexts.</p>
+      </div>
+      <img class="subpage-image" src="img/research-calendar-persona.webp" alt="persona" />
+      <h3 class="subpage-title-section">4. Limitations</h3>
+      <p>Although this study provides valuable insights into the experiences of Level 1 students using college-provided calendars, it has certain limitations. The survey primarily gathered input from Level 1 international students, with only two out of ten participants being domestic students.</p>
+      <h3 class="subpage-title-section">5. Learnings</h3>
+      <p>This research study was my first experience conducting a full research process, and it was a valuable learning opportunity. I developed essential skills in creating a research plan and learned how to design interview protocols properly to generate useful insights.</p>
+      <p>Summary of Research Process:</p>
+      <ul>
+        <li><b>Step 1:</b> Developed a research plan.</li>
+        <li><b>Step 2:</b> Designed surveys, interview protocols, and consent forms, then conduct a pilot interview.</li>
+        <li><b>Step 3:</b> Launched the survey to screen and identify suitable participants for interviews.</li>
+        <li><b>Step 4:</b> Recruited eligible participants, schedule interviews, and conduct in-depth semi-structured interviews.</li>
+        <li><b>Step 5:</b> Analysed data, identify themes and insights, and provide recommendations.</li>
+      </ul>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+
+  <script>
+    // Fix: CSS :target modals preserve their scroll position if you close and reopen them.
+    // This resets the scroll to the top every time a modal is opened.
+    window.addEventListener('hashchange', function() {
+      if (window.location.hash.startsWith('#project-')) {
+        const modal = document.querySelector(window.location.hash);
+        if (modal) {
+          // Reset scroll immediately and also after a tiny delay to ensure the animation doesn't fight it
+          modal.scrollTop = 0;
+          setTimeout(() => { modal.scrollTop = 0; }, 10);
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>
