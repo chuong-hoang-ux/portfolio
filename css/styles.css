@@ -659,6 +659,29 @@ footer .copyright {
     margin-bottom: 1em;
 }
 
+/* ---------- About Split Layout (Text | Image / Image | Text) ---------- */
+.about-split {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    margin-bottom: 2em;
+}
+
+.about-split__text,
+.about-split__image {
+    width: 100%;
+}
+
+.about-split__image .about-section-image {
+    margin-top: 0;
+}
+
+.about-split__image p {
+    font-size: 0.875rem;
+    color: var(--dark-grey);
+    margin-top: 0.5em;
+}
+
 .about-section {
     margin-bottom: 2em;
 }
@@ -682,6 +705,18 @@ blockquote {
     border-left: solid 2px var(--black);
 }
 
+/* Blessed section — centred, no border */
+.about-blessed {
+    text-align: center;
+    margin: 2em 0;
+}
+
+.about-blessed blockquote {
+    border-left: none;
+    padding: 0.5em 0;
+    text-align: center;
+}
+
 .hyperlink-hightlight {
     color: var(--black);
     background-color: var(--yellow);
@@ -693,6 +728,7 @@ blockquote {
     background-color: transparent;
 }
 
+a,
 .hyperlink-normal {
     color: var(--black);
 }
@@ -959,6 +995,28 @@ work-exp-time-des {
 
     #about-about-me {
         grid-area: about-about-me;
+    }
+
+    /* Split layout: side-by-side on desktop */
+    .about-split {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3em;
+    }
+
+    .about-split__text,
+    .about-split__image {
+        flex: 1;
+    }
+
+    /* Text-first: text left, image right — no change needed (natural order) */
+
+    /* Image-first: image left, text right — swap using order */
+    .about-split--image-first .about-split__image {
+        order: 1;
+    }
+    .about-split--image-first .about-split__text {
+        order: 2;
     }
 
     /* ---------- |Desktop| PAGE: PROJECTS ---------- */
