@@ -275,6 +275,20 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <script>
+    (function () {
+      var container = document.querySelector('.about-tags-container');
+      if (!container) return;
+      var tags = Array.from(container.children);
+      // Wrap originals in a track
+      var track = document.createElement('div');
+      track.className = 'about-tags-track';
+      tags.forEach(function (tag) { track.appendChild(tag); });
+      // Duplicate for seamless loop
+      tags.forEach(function (tag) { track.appendChild(tag.cloneNode(true)); });
+      container.appendChild(track);
+    })();
+  </script>
 </body>
 
 </html>
