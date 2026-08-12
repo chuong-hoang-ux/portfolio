@@ -32,15 +32,11 @@
           
           <!-- Left links block (takes exactly 50% width and aligns links right) -->
           <ul class="navbar-nav gap-lg-4 d-flex nav-left-links">
-            <!-- Menu item: Work -->
             <li class="nav-item">
               <a class="nav-link" href="index.html">Work</a>
             </li>
-            <!-- Menu item: My Resume -->
             <li class="nav-item">
-              <a class="nav-link"
-                href="https://drive.google.com/file/d/1tcwM0p36poORWJm-9E5RetiFOh8ayKWm/view?usp=sharing"
-                target="_blank">My Résumé</a>
+              <a class="nav-link" href="about.html">The Protagonist</a>
             </li>
           </ul>
 
@@ -51,13 +47,13 @@
 
           <!-- Right links block (takes exactly 50% width and aligns links left) -->
           <ul class="navbar-nav gap-lg-4 d-flex nav-right-links">
-            <!-- Menu item: About -->
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">The Protagonist</a>
-            </li>
-            <!-- Menu item: Photography -->
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="photography.html">Photography</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                href="https://drive.google.com/file/d/1tcwM0p36poORWJm-9E5RetiFOh8ayKWm/view?usp=sharing"
+                target="_blank">My Résumé <svg class="external-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
             </li>
           </ul>
 
@@ -335,16 +331,14 @@
         <!-- Page title -->
         <div id="intro-title-description-button">
           <h1 id="intro-title-photo">
-            I fall in love with fleeting moments &<br />
-            <span class="italic-word-photo"
-              >I quietly keep them for myself
-            </span>
+            <span class="tw-line" data-tw="1">I fall in love with fleeting moments &</span><br />
+            <span class="italic-word-photo tw-line" data-tw="2">I quietly keep them for myself</span>
           </h1>
 
         </div>
         <!-- Indicator -->
         <div class="indicator-space">
-          <img class="indicator" src="img/indicator.png" alt="indicator" />
+          <span class="indicator-glyph" aria-hidden="true">&#10035;</span>
         </div>
       </section>
       <!---------- SECTION: INTRO (ENDS) ---------->
@@ -453,8 +447,8 @@
         Based in Canada
       </p>
       <h2>
-        Let's grab a coffee<br>
-        or build something <em>extraordinaire.</em>
+        Design chat or build something<br>
+      <em>extraordinaire</em> together?
       </h2>
       <p class="sub">
         Whether you have a project in mind or just want to chat —
@@ -485,5 +479,65 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script>
+      (function () {
+        var lines = Array.prototype.slice.call(document.querySelectorAll('#intro-title-photo .tw-line'));
+        if (!lines.length) return;
+
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Wrap each character in a span so layout is fixed up-front (no reflow while typing)
+        lines.forEach(function (line) {
+          var text = line.textContent;
+          line.textContent = '';
+          line.setAttribute('aria-label', text);
+          for (var i = 0; i < text.length; i++) {
+            if (text.charCodeAt(i) === 32) { line.appendChild(document.createTextNode(' ')); continue; }
+            var ch = document.createElement('span');
+            ch.className = 'tw-char';
+            ch.setAttribute('aria-hidden', 'true');
+            ch.textContent = text[i];
+            line.appendChild(ch);
+          }
+        });
+
+        var chars = Array.prototype.slice.call(document.querySelectorAll('#intro-title-photo .tw-char'));
+
+        if (reduce) {
+          chars.forEach(function (c) { c.classList.add('tw-in'); });
+          return;
+        }
+
+        // "Water expanding from the top-left": reveal each character in order of
+        // its distance from the top-left corner of the text group, so the reveal
+        // radiates outward like a ripple.
+        var box = document.querySelector('#intro-title-photo').getBoundingClientRect();
+        var originX = box.left;
+        var originY = box.top;
+
+        var maxDist = 0;
+        var data = chars.map(function (c) {
+          var r = c.getBoundingClientRect();
+          var dx = (r.left + r.width / 2) - originX;
+          var dy = (r.top + r.height / 2) - originY;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist > maxDist) maxDist = dist;
+          return { el: c, dist: dist };
+        });
+
+        var SPREAD_MS = 900; // total time for the ripple to reach the far corner
+        data.forEach(function (d) {
+          var delay = (d.dist / maxDist) * SPREAD_MS;
+          d.el.style.transitionDelay = delay + 'ms';
+        });
+
+        // Kick off on the next frame so the delays are in place first
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            chars.forEach(function (c) { c.classList.add('tw-in'); });
+          });
+        });
+      })();
+    </script>
   </body>
 </html>

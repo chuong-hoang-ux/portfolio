@@ -82,6 +82,15 @@ nav ul li a {
     color: #333333;
 }
 
+nav .nav-link .external-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-left: 0.15em;
+    opacity: 0.6;
+}
+
 /* Responsive Navigation Alignment */
 .nav-left-links,
 .nav-right-links {
@@ -204,9 +213,7 @@ nav ul li a {
 
 /* ----- Rotating object ----- */
 #rotating-object {
-    margin-top: 3em;
-    animation: rotating-object 10s infinite linear;
-    width: 60%;
+    display: none;
 }
 
 @keyframes rotating-object {
@@ -249,6 +256,15 @@ nav ul li a {
     }
 }
 
+/* Photography grid: full-width with mobile-style padding below desktop */
+@media only screen and (max-width: 991px) {
+    section.container.my-4 {
+        max-width: 100%;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
 #intro-final-pos-link {
     font-size: 1.125rem;
 }
@@ -257,77 +273,90 @@ nav ul li a {
     border: none;
 }
 
-/* card animation */
+/* ---------- Project cards: "Nothing" quick-start-guide style ---------- */
+.row.g-3 {
+    --bs-gutter-x: 4px;
+    --bs-gutter-y: 4px;
+}
+
+/* Tighter side padding for the project sections */
+main > section.container:not(.my-4) {
+    max-width: 100%;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+}
+
+/* The 4-point star is the negative space where four rounded card
+   corners meet across the small gap — no glyph needed. */
+
 .card {
     margin-bottom: 0;
-    border: 1.5px solid var(--grey) !important;
+    border: 0.5px solid var(--grey) !important;
     border-radius: 16px !important;
+    background-color: var(--white);
+    padding: 12px;
     overflow: hidden;
     height: 100%;
     width: 100%;
-    transition: border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .card:hover {
-    border-color: var(--black) !important;
+    background-color: var(--light-grey);
+    border-color: var(--grey) !important;
 }
 
-.card .button-view-project {
-    border-top-color: var(--grey);
-    transition: border-color 0.2s ease;
-}
-
-.card:hover .button-view-project {
-    border-top-color: var(--black);
+/* Make the entire card clickable via the View Project link */
+.card .button-view-project::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
 }
 
 .card-body {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .card-body .button-view-project {
     margin-top: auto;
-    margin-left: -1rem;
-    margin-right: -1rem;
-    width: calc(100% + 2rem);
+    margin-left: -12px;
+    margin-right: -12px;
+    margin-bottom: -12px;
+    width: calc(100% + 24px);
 }
 
 .tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5em;
-    margin-bottom: 12px;
+    margin-bottom: 1rem;
 }
 
 .tags .tag {
     margin: 0;
 }
 
-.card:hover {
-    /* transform: translateY(-0.625em); */
-    background-color: var(--light-grey);
-    border-radius: 0;
-}
-
 .card-img-top {
-    margin: 1em;
-    width: calc(100% - 2em);
-    border-radius: 10px;
+    margin: 0 0 1.25rem 0;
+    width: 100%;
+    border-radius: 12px;
 }
 
 .card-title {
     font-family: "Work Sans", sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
-    /* 20px */
     font-weight: 500;
+    font-size: 1rem;
     line-height: 150%;
-    /* margin-top: 12px; */
     text-decoration: none;
     color: var(--black);
+    margin-bottom: 1rem;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -336,13 +365,13 @@ nav ul li a {
 
 .tag {
     text-transform: uppercase;
+    font-family: "Work Sans", sans-serif;
     font-size: 0.75rem;
     border-radius: 0.375em 0.5em;
     background-color: var(--light-grey);
+    color: var(--black);
     display: inline-flex;
-    padding: 0.5em;
-    padding-left: 0.75em;
-    padding-right: 0.75em;
+    padding: 0.5em 0.75em;
     justify-content: center;
     align-items: center;
 }
@@ -354,11 +383,11 @@ nav ul li a {
     justify-content: space-between;
     height: 48px;
     width: 100%;
-    padding: 0 1rem;
+    padding: 0 12px;
     background-color: transparent;
     color: var(--black);
     border-radius: 0;
-    border-top: 1.5px solid var(--black);
+    border-top: 0.5px solid var(--grey);
     overflow: hidden;
     font-weight: 400;
     text-decoration: none;
@@ -562,23 +591,64 @@ footer .copyright {
 #intro-title {
     font-family: "ivymode", sans-serif;
     font-weight: 300;
+    font-style: normal;
     color: var(--black);
-    font-size: 4rem;
-    /* 64px */
+    font-size: clamp(2.75rem, 8.5vw, 4.5rem);
     text-align: center;
     margin-bottom: 0.5em;
-    line-height: 0.8em;
+    line-height: 0.9em;
     /* margin-right: 1em; */
     position: relative;
     overflow: visible;
+    transition: color 0.01s linear;
+    cursor: default;
+}
+
+#intro-title:hover,
+#intro-title:hover .italic-word,
+#intro-title:hover .tw-line,
+#intro-title:hover .tw-char {
+    color: #3a4db5;
+}
+
+/* Water-bloom reveal (same as Photography hero) */
+#intro-title .tw-line,
+#intro-title .tw-char {
+    font-size: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    line-height: inherit;
+}
+
+#intro-title .tw-char {
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 0.7s ease, filter 0.7s ease, color 0.01s linear;
+    will-change: opacity, filter;
+}
+
+#intro-title .tw-char.tw-in {
+    opacity: 1;
+    filter: blur(0);
+}
+
+/* Disable the old per-line slide-up so the char bloom drives the reveal */
+#intro-title .greeting {
+    animation: none;
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #intro-title .tw-char {
+        transition: none;
+    }
 }
 
 
 #intro-title .italic-word {
     font-family: "ivymode", sans-serif;
     font-weight: 400;
-    font-size: 4rem;
-    /* 64px */
+    font-size: inherit;
     color: var(--black);
     font-style: italic;
 }
@@ -623,6 +693,10 @@ footer .copyright {
     margin-top: 3em;
     margin-bottom: 3em;
     align-items: center;
+}
+
+.indicator-glyph {
+    display: none;
 }
 
 /* Flickering asterisk */
@@ -968,30 +1042,64 @@ work-exp-time-des {
 #intro-title-photo {
     font-family: "ivymode", sans-serif;
     font-weight: 400;
-    max-width: 574px;
+    font-style: italic;
+    /* fluid size so the title scales with the viewport... */
+    font-size: clamp(2rem, 6.5vw, 4rem);
+    /* ...and an em-based width so the words-per-line (and thus the
+       line grouping) stay the same at every size */
+    max-width: 9em;
     color: var(--black);
-    font-size: 4rem;
-    /* 64px */
     text-align: center;
     margin-bottom: 0.5em;
     line-height: 0.8em;
+    transition: color 0.01s linear;
+    cursor: default;
+    transform: rotate(-5deg);
+}
+
+#intro-title-photo:hover,
+#intro-title-photo:hover .italic-word-photo,
+#intro-title-photo:hover .tw-line,
+#intro-title-photo:hover .tw-char {
+    color: #3a4db5;
+}
+
+/* Typewriter "writing" reveal */
+#intro-title-photo .tw-line,
+#intro-title-photo .tw-char {
+    font-size: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    line-height: inherit;
+}
+
+#intro-title-photo .tw-char {
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 0.7s ease, filter 0.7s ease, color 0.01s linear;
+    will-change: opacity, filter;
+}
+
+#intro-title-photo .tw-char.tw-in {
+    opacity: 1;
+    filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #intro-title-photo .tw-char {
+        transition: none;
+    }
 }
 
 #intro-title-photo .italic-word-photo {
     font-family: "ivymode", sans-serif;
     font-weight: 400;
-    font-size: 4rem;
+    font-size: inherit;
     color: var(--black);
     font-style: italic;
 }
 
 @media only screen and (max-width: 767px) {
-    #intro-title-photo,
-    #intro-title-photo .italic-word-photo {
-        font-size: 2.5rem;
-        line-height: 1.1em;
-    }
-
     .intro {
         margin-top: 0;
     }
@@ -1150,29 +1258,12 @@ work-exp-time-des {
         margin-top: 0;
     }
 
-    #intro-title {
-        font-family: "ivymode", sans-serif;
-        font-weight: 400;
-        color: var(--black);
-        font-size: 6rem;
-        text-align: center;
-        margin-bottom: 0.5em;
-        line-height: 0.6em;
-        position: relative;
-        overflow: visible;
-    }
-
     #intro-title .italic-word {
         font-family: "ivymode", sans-serif;
         font-weight: 400;
-        font-size: 6rem;
+        font-size: inherit;
         color: var(--black);
         font-style: italic;
-    }
-
-    /* Greeting animation desktop font size */
-    #intro-title .greeting {
-        font-size: 5rem !important;
     }
 
     #intro-description {
@@ -1314,13 +1405,11 @@ work-exp-time-des {
 
 /* Base style for all greetings - start hidden */
 .greeting {
-    display: inline-block;
     opacity: 0;
     animation: slideInUp 0.4s ease-out forwards;
     font-family: "ivymode", sans-serif;
     font-weight: 400;
-    font-size: 4rem;
-    /* Match mobile #intro-title size */
+    font-size: inherit;
 }
 
 /* Stagger the animations for each greeting */
@@ -1335,6 +1424,14 @@ work-exp-time-des {
 
 .greeting-3 {
     animation-delay: 0.6s;
+}
+
+.greeting-4 {
+    animation-delay: 0.8s;
+}
+
+.greeting-5 {
+    animation-delay: 1.0s;
 }
 
 /* New Animation for Hero Section */

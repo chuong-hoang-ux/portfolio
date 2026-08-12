@@ -29,15 +29,11 @@
           
           <!-- Left links block (takes exactly 50% width and aligns links right) -->
           <ul class="navbar-nav gap-lg-4 d-flex nav-left-links">
-            <!-- Menu item: Work -->
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="index.html">Work</a>
             </li>
-            <!-- Menu item: My Resume -->
             <li class="nav-item">
-              <a class="nav-link"
-                href="https://drive.google.com/file/d/1tcwM0p36poORWJm-9E5RetiFOh8ayKWm/view?usp=sharing"
-                target="_blank">My Résumé</a>
+              <a class="nav-link" href="about.html">The Protagonist</a>
             </li>
           </ul>
 
@@ -48,13 +44,13 @@
 
           <!-- Right links block (takes exactly 50% width and aligns links left) -->
           <ul class="navbar-nav gap-lg-4 d-flex nav-right-links">
-            <!-- Menu item: About -->
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">The Protagonist</a>
-            </li>
-            <!-- Menu item: Photography -->
             <li class="nav-item">
               <a class="nav-link" href="photography.html">Photography</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                href="https://drive.google.com/file/d/1tcwM0p36poORWJm-9E5RetiFOh8ayKWm/view?usp=sharing"
+                target="_blank">My Résumé <svg class="external-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
             </li>
           </ul>
 
@@ -74,14 +70,15 @@
         /> -->
       <div id="intro-title-description-button">
         <h1 id="intro-title">
-          <span class="greeting greeting-1">Hello</span><br>
-          <span class="greeting greeting-2 italic-word">Bonjour</span><br>
-          <span class="greeting greeting-3">Xin Chao</span>
+          <span class="greeting greeting-1 tw-line">Doer,</span>
+          <span class="greeting greeting-2 tw-line">Thinker,</span><br>
+          <span class="greeting greeting-3 tw-line">Product Designer.</span><br>
+          <span class="greeting greeting-4 italic-word tw-line">I make messy ideas</span><br>
+          <span class="greeting greeting-5 italic-word tw-line">tangible.</span>
         </h1>
         <p id="intro-description" class="typing-text">
-          Here, you'll meet a Doer, a Thinker & a Product Designer, <br>
-          who is currently building Products at <a id="intro-final-pos-link" class="hyperlink-hightlight" href="https://finalpos.com"
-            target="_blank">Final POS</a>.</p>
+          Currently building Products at <a id="intro-final-pos-link" class="hyperlink-hightlight" href="https://finalpos.com"
+            target="_blank">Final POS</a> 🇨🇦.</p>
         <!-- button view project -->
         <a class="button-get-to-know-me" href="about.html">Meet the protagonist</a>
       </div>
@@ -233,8 +230,8 @@
       Based in Canada
     </p>
     <h2>
-      Let's grab a coffee<br>
-      or build something <em>extraordinaire.</em>
+      Design chat or build something<br>
+      <em>extraordinaire</em> together?
     </h2>
     <p class="sub">
       Whether you have a project in mind or just want to chat —
@@ -526,6 +523,72 @@
         }
       }
     });
+  </script>
+
+  <script>
+    // Hero title: "water expanding from the top-left" reveal (same as Photography page)
+    (function () {
+      var lines = Array.prototype.slice.call(document.querySelectorAll('#intro-title .tw-line'));
+      if (!lines.length) return;
+
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      lines.forEach(function (line) {
+        var text = line.textContent;
+        line.textContent = '';
+        line.setAttribute('aria-label', text);
+        for (var i = 0; i < text.length; i++) {
+          if (text.charCodeAt(i) === 32) { line.appendChild(document.createTextNode(' ')); continue; }
+          var ch = document.createElement('span');
+          ch.className = 'tw-char';
+          ch.setAttribute('aria-hidden', 'true');
+          ch.textContent = text[i];
+          line.appendChild(ch);
+        }
+      });
+
+      var chars = Array.prototype.slice.call(document.querySelectorAll('#intro-title .tw-char'));
+
+      if (reduce) {
+        chars.forEach(function (c) { c.classList.add('tw-in'); });
+        lines.forEach(function (l) { l.classList.add('to-black'); });
+        return;
+      }
+
+      var box = document.querySelector('#intro-title').getBoundingClientRect();
+      var originX = box.left;
+      var originY = box.top;
+
+      var maxDist = 0;
+      var data = chars.map(function (c) {
+        var r = c.getBoundingClientRect();
+        var dx = (r.left + r.width / 2) - originX;
+        var dy = (r.top + r.height / 2) - originY;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist > maxDist) maxDist = dist;
+        return { el: c, dist: dist };
+      });
+
+      var SPREAD_MS = 900;
+      data.forEach(function (d) {
+        d.el.style.transitionDelay = ((d.dist / maxDist) * SPREAD_MS) + 'ms';
+      });
+
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          chars.forEach(function (c) { c.classList.add('tw-in'); });
+        });
+      });
+
+      // After the blue bloom finishes, settle each word to black one by one
+      var SETTLE_START = SPREAD_MS + 600; // wait for the bloom to complete
+      var SETTLE_GAP = 450;               // delay between words turning black
+      lines.forEach(function (line, idx) {
+        setTimeout(function () {
+          line.classList.add('to-black');
+        }, SETTLE_START + idx * SETTLE_GAP);
+      });
+    })();
   </script>
 </body>
 
