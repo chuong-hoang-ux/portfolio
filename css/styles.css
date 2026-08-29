@@ -11,16 +11,18 @@
     --yellow: #ffe57d;
     --light-yellow: #FFF7EA;
     --light-green: #DEE8E4;
+    --title-blue: #1E4FB8;
+    --light-blue: #EEF3FD;
 }
 
 * {
     font-family: "Work Sans", sans-serif;
-    color: var(--black);
+    color: var(--title-blue);
     font-size: 1rem;
 }
 
 main {
-    margin-top: 120px;
+    margin-top: 106px;
 }
 
 /* body {
@@ -51,12 +53,20 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    height: 80px;
+    box-sizing: border-box;
     background-color: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     display: flex;
+    align-items: center;
     z-index: 999;
+}
+
+/* Bootstrap's own vertical padding would push the bar past 80px */
+header .navbar {
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .navbar {
@@ -64,8 +74,20 @@ header {
 }
 
 #logo {
-    width: 6em;
     margin-left: 1em;
+}
+
+/* Wordmark: set in Quattrocento rather than the old logo image. */
+.logo-text {
+    display: inline-block;
+    font-family: "Quattrocento", serif;
+    color: var(--title-blue);
+    font-size: 1.5rem;
+    line-height: 0.8;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
 }
 
 nav ul {
@@ -79,7 +101,34 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    color: #333333;
+    color: var(--title-blue);
+}
+
+/* Bootstrap's .navbar-nav .nav-link outranks the element selector above,
+   so the colour has to be set at class specificity. Every link reads the
+   same - the underline alone marks the current page. */
+nav .navbar-nav .nav-link,
+nav .navbar-nav .nav-link.active,
+nav .navbar-nav .nav-link:hover,
+nav .navbar-nav .nav-link:focus {
+    position: relative;
+    color: var(--title-blue);
+    opacity: 1;
+}
+
+/* Underline on the current page's link. Offsets are measured from the link
+   box: the text ink ends 10.5px above it, so bottom: 4.5px leaves a 4px gap
+   above the 2px rule. left/right match Bootstrap's 0.5rem link padding so
+   the rule spans the text, not the padded box. */
+nav .navbar-nav .nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 4.5px;
+    height: 2px;
+    border-radius: 999px;
+    background-color: var(--title-blue);
 }
 
 nav .nav-link .external-icon {
@@ -88,7 +137,10 @@ nav .nav-link .external-icon {
     height: 16px;
     vertical-align: middle;
     margin-left: 0.15em;
-    opacity: 0.6;
+    /* The icon strokes with currentColor, and the global `*` rule paints
+       every element --black, so the colour has to be set here. */
+    color: var(--title-blue);
+    opacity: 1;
 }
 
 /* Responsive Navigation Alignment */
@@ -153,6 +205,14 @@ nav .nav-link .external-icon {
         text-align: center;
     }
 
+    /* Fullscreen menu: 2rem text with no horizontal padding, so the
+       underline needs its own offsets to keep the same 4px gap. */
+    .navbar-collapse .nav-link.active::after {
+        left: 0;
+        right: 0;
+        bottom: 7px;
+    }
+
     /* Keep toggler button above the overlay */
     .navbar-toggler {
         position: relative;
@@ -180,7 +240,7 @@ nav .nav-link .external-icon {
         background-image: none;
         width: 24px;
         height: 1.5px;
-        background: #333;
+        background: var(--title-blue);
         transition: opacity 0.3s ease;
         opacity: 1;
     }
@@ -192,7 +252,7 @@ nav .nav-link .external-icon {
         display: block;
         width: 24px;
         height: 1.5px;
-        background: #333;
+        background: var(--title-blue);
         transition: transform 0.3s ease;
         transform-origin: center;
     }
@@ -231,7 +291,8 @@ nav .nav-link .external-icon {
 .section-title {
     font-family: "Work Sans", sans-serif;
     font-weight: 400;
-    color: var(--black);
+    text-transform: uppercase;
+    color: var(--title-blue);
     font-size: 1.5rem;
     /* 32px */
     text-align: center;
@@ -291,8 +352,8 @@ main > section.container:not(.my-4) {
 
 .card {
     margin-bottom: 0;
-    border: 0.5px solid var(--grey) !important;
-    border-radius: 16px !important;
+    border: 0.5px solid var(--light-blue) !important;
+    border-radius: 4px !important;
     background-color: var(--white);
     padding: 12px;
     overflow: hidden;
@@ -305,8 +366,15 @@ main > section.container:not(.my-4) {
 }
 
 .card:hover {
-    background-color: var(--light-grey);
-    border-color: var(--grey) !important;
+    border-color: var(--title-blue) !important;
+    border-width: 1.5px !important;
+}
+
+/* The whole card is clickable through .button-view-project::after, so a card
+   hover and a button hover are the same gesture - keep their borders in sync. */
+.card:hover .button-view-project,
+.button-view-project:hover {
+    border-top-color: var(--title-blue);
 }
 
 /* Make the entire card clickable via the View Project link */
@@ -346,7 +414,7 @@ main > section.container:not(.my-4) {
 .card-img-top {
     margin: 0 0 1.25rem 0;
     width: 100%;
-    border-radius: 12px;
+    border-radius: 2px;
 }
 
 .card-title {
@@ -355,7 +423,7 @@ main > section.container:not(.my-4) {
     font-size: 1rem;
     line-height: 150%;
     text-decoration: none;
-    color: var(--black);
+    color: var(--title-blue);
     margin-bottom: 1rem;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -368,8 +436,8 @@ main > section.container:not(.my-4) {
     font-family: "Work Sans", sans-serif;
     font-size: 0.75rem;
     border-radius: 0.375em 0.5em;
-    background-color: var(--light-grey);
-    color: var(--black);
+    background-color: var(--light-blue);
+    color: var(--title-blue);
     display: inline-flex;
     padding: 0.5em 0.75em;
     justify-content: center;
@@ -385,22 +453,14 @@ main > section.container:not(.my-4) {
     width: 100%;
     padding: 0 12px;
     background-color: transparent;
-    color: var(--black);
+    color: var(--title-blue);
     border-radius: 0;
-    border-top: 0.5px solid var(--grey);
+    border-top: 0.5px solid var(--light-blue);
     overflow: hidden;
     font-weight: 400;
     text-decoration: none;
     font-family: "Work Sans", sans-serif;
-}
-
-.button-view-project:hover {
-    background-color: var(--dark-grey);
-    color: var(--white);
-}
-
-.button-view-project:hover svg {
-    stroke: var(--white);
+    transition: border-top-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Button: Disabled */
@@ -424,9 +484,29 @@ main > section.container:not(.my-4) {
 
 /* ---------- Footer ---------- */
 footer {
-    padding: 2em 1em 2em 1em;
-    background-color: var(--black);
-    color: var(--white);
+    /* Stamp box: a scalloped blue stroke on all four edges, drawn as four
+       repeating background tiles (one per edge). Each tile's line spans the
+       full tile, so the four edges meet and close the rectangle at the
+       corners; the notches dip inward like a stamp perforation. Each tile
+       runs its stroke through an SVG turbulence filter so the ink comes out
+       rough and broken, like a worn letterpress edge. Each tile also fills
+       the far side of its line with the page colour, so the tinted
+       background stops at the perforation instead of filling the notches. */
+    --edge: 14px;
+    --gap: 1.5rem;
+
+    margin: 0 var(--gap) var(--gap);
+    padding: calc(2em + var(--edge)) calc(1em + var(--edge)) calc(2em + var(--edge));
+    background-color: var(--light-blue);
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='14' viewBox='0 0 200 14'%3E%3Cdefs%3E%3Cfilter id='ink' x='-60%25' y='-60%25' width='220%25' height='220%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='1.8' xChannelSelector='R' yChannelSelector='G' result='d'/%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.16' numOctaves='4' seed='11' result='m'/%3E%3CfeColorMatrix in='m' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.8 0 0 0 -0.45' result='mm'/%3E%3CfeComposite in='d' in2='mm' operator='in'/%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M0 1H14A6 6 0 0 0 26 1H54A6 6 0 0 0 66 1H94A6 6 0 0 0 106 1H134A6 6 0 0 0 146 1H174A6 6 0 0 0 186 1H200V0H0Z' fill='%23ffffff'/%3E%3Cpath d='M0 1H14A6 6 0 0 0 26 1H54A6 6 0 0 0 66 1H94A6 6 0 0 0 106 1H134A6 6 0 0 0 146 1H174A6 6 0 0 0 186 1H200' fill='none' stroke='%231E4FB8' stroke-width='1.6' stroke-opacity='0.92' filter='url(%23ink)'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='14' viewBox='0 0 200 14'%3E%3Cdefs%3E%3Cfilter id='ink' x='-60%25' y='-60%25' width='220%25' height='220%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='9' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='1.8' xChannelSelector='R' yChannelSelector='G' result='d'/%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.16' numOctaves='4' seed='23' result='m'/%3E%3CfeColorMatrix in='m' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.8 0 0 0 -0.45' result='mm'/%3E%3CfeComposite in='d' in2='mm' operator='in'/%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M0 13H14A6 6 0 0 1 26 13H54A6 6 0 0 1 66 13H94A6 6 0 0 1 106 13H134A6 6 0 0 1 146 13H174A6 6 0 0 1 186 13H200V14H0Z' fill='%23ffffff'/%3E%3Cpath d='M0 13H14A6 6 0 0 1 26 13H54A6 6 0 0 1 66 13H94A6 6 0 0 1 106 13H134A6 6 0 0 1 146 13H174A6 6 0 0 1 186 13H200' fill='none' stroke='%231E4FB8' stroke-width='1.6' stroke-opacity='0.92' filter='url(%23ink)'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='200' viewBox='0 0 14 200'%3E%3Cdefs%3E%3Cfilter id='ink' x='-60%25' y='-60%25' width='220%25' height='220%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='17' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='1.8' xChannelSelector='R' yChannelSelector='G' result='d'/%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.16' numOctaves='4' seed='31' result='m'/%3E%3CfeColorMatrix in='m' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.8 0 0 0 -0.45' result='mm'/%3E%3CfeComposite in='d' in2='mm' operator='in'/%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M1 0V14A6 6 0 0 1 1 26V54A6 6 0 0 1 1 66V94A6 6 0 0 1 1 106V134A6 6 0 0 1 1 146V174A6 6 0 0 1 1 186V200H0V0Z' fill='%23ffffff'/%3E%3Cpath d='M1 0V14A6 6 0 0 1 1 26V54A6 6 0 0 1 1 66V94A6 6 0 0 1 1 106V134A6 6 0 0 1 1 146V174A6 6 0 0 1 1 186V200' fill='none' stroke='%231E4FB8' stroke-width='1.6' stroke-opacity='0.92' filter='url(%23ink)'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='200' viewBox='0 0 14 200'%3E%3Cdefs%3E%3Cfilter id='ink' x='-60%25' y='-60%25' width='220%25' height='220%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='27' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='1.8' xChannelSelector='R' yChannelSelector='G' result='d'/%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.16' numOctaves='4' seed='41' result='m'/%3E%3CfeColorMatrix in='m' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.8 0 0 0 -0.45' result='mm'/%3E%3CfeComposite in='d' in2='mm' operator='in'/%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M13 0V14A6 6 0 0 0 13 26V54A6 6 0 0 0 13 66V94A6 6 0 0 0 13 106V134A6 6 0 0 0 13 146V174A6 6 0 0 0 13 186V200H14V0Z' fill='%23ffffff'/%3E%3Cpath d='M13 0V14A6 6 0 0 0 13 26V54A6 6 0 0 0 13 66V94A6 6 0 0 0 13 106V134A6 6 0 0 0 13 146V174A6 6 0 0 0 13 186V200' fill='none' stroke='%231E4FB8' stroke-width='1.6' stroke-opacity='0.92' filter='url(%23ink)'/%3E%3C/svg%3E");
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-position: top left, bottom left, top left, top right;
+    background-size: 200px var(--edge), 200px var(--edge), var(--edge) 200px, var(--edge) 200px;
+    color: var(--title-blue);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -434,7 +514,7 @@ footer {
 }
 
 footer p {
-    color: var(--white);
+    color: var(--title-blue);
     text-align: center;
 }
 
@@ -471,20 +551,22 @@ footer .coffee-dot::after {
 }
 
 footer h2 {
-    font-family: "Work Sans", sans-serif;
+    font-family: "Quattrocento", serif;
     font-size: 2.5rem;
-    font-weight: 300;
+    font-weight: 400;
     margin-bottom: 0.5em;
     line-height: 1.2;
-    color: var(--white);
+    color: var(--title-blue);
 }
 
 footer h2 em {
-    font-family: "ivymode", sans-serif;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 44px;
-    color: var(--white);
+    font-family: "Quattrocento", serif;
+    font-style: normal;
+    /* The global `*` rule sets font-size on every element, so inheriting
+       from the heading has to be explicit. */
+    font-size: inherit;
+    font-weight: inherit;
+    color: var(--title-blue);
 }
 
 footer .sub {
@@ -504,14 +586,12 @@ footer .cta-row {
     align-items: center;
     justify-content: center;
     gap: 0.5em;
-    background-color: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    color: var(--white);
-    border: none;
+    background-color: transparent;
+    color: var(--title-blue);
+    border: 1px solid var(--title-blue);
     height: 44px;
     padding: 0 1.5em;
-    border-radius: 0.5em;
+    border-radius: 4px;
     text-decoration: none;
     font-family: "Work Sans", sans-serif;
     font-weight: 400;
@@ -522,24 +602,24 @@ footer .cta-row {
 .button-footer svg path,
 .button-footer svg rect,
 .button-footer svg circle {
-    stroke: var(--white);
+    stroke: var(--title-blue);
     transition: stroke 0.2s ease;
 }
 
 .button-footer:hover {
-    background-color: var(--white);
-    color: var(--black);
+    background-color: var(--title-blue);
+    color: var(--white);
 }
 
 .button-footer:hover svg,
 .button-footer:hover svg path,
 .button-footer:hover svg rect,
 .button-footer:hover svg circle {
-    stroke: var(--black);
+    stroke: var(--white);
 }
 
 footer .copyright {
-    color: var(--grey);
+    color: var(--title-blue);
     font-size: 14px;
     font-family: "Work Sans", sans-serif;
     margin-bottom: 0;
@@ -589,14 +669,16 @@ footer .copyright {
 }
 
 #intro-title {
-    font-family: "ivymode", sans-serif;
+    font-family: "Quattrocento", serif;
     font-weight: 300;
     font-style: normal;
-    color: var(--black);
-    font-size: clamp(2.75rem, 8.5vw, 4.5rem);
+    text-transform: uppercase;
+    color: var(--title-blue);
+    font-size: 4rem;
+    /* 64px */
     text-align: center;
     margin-bottom: 0.5em;
-    line-height: 0.9em;
+    line-height: 0.8em;
     /* margin-right: 1em; */
     position: relative;
     overflow: visible;
@@ -608,7 +690,7 @@ footer .copyright {
 #intro-title:hover .italic-word,
 #intro-title:hover .tw-line,
 #intro-title:hover .tw-char {
-    color: #3a4db5;
+    color: var(--title-blue);
 }
 
 /* Water-bloom reveal (same as Photography hero) */
@@ -618,6 +700,9 @@ footer .copyright {
     font-style: inherit;
     font-family: inherit;
     line-height: inherit;
+    /* The global `*` rule paints every span --black, so the colour has to be
+       set on the spans themselves rather than inherited from #intro-title. */
+    color: var(--title-blue);
 }
 
 #intro-title .tw-char {
@@ -638,6 +723,66 @@ footer .copyright {
     opacity: 1;
 }
 
+/* Flag tooltip on each greeting line */
+#intro-title .greeting[data-tip] {
+    position: relative;
+}
+
+#intro-title .greeting[data-tip]::after {
+    content: attr(data-tip);
+    /* Beside the line, not above it - the hero's 0.6em leading leaves no
+       room overhead, so a bubble on top would cover the previous line. */
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translate(14px, -50%);
+    background-color: var(--light-blue);
+    color: var(--title-blue);
+    font-family: "Work Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: normal;
+    /* #intro-title is uppercased; the tooltip copy shouldn't be. */
+    text-transform: none;
+    line-height: 1.2;
+    letter-spacing: normal;
+    padding: 0.4em 0.6em;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+#intro-title .greeting[data-tip]:hover::after {
+    opacity: 1;
+    transform: translate(18px, -50%);
+}
+
+/* Narrow screens: no room beside the line, so sit the bubble above it */
+@media only screen and (max-width: 767px) {
+    #intro-title .greeting[data-tip]::after {
+        left: 50%;
+        top: auto;
+        bottom: 100%;
+        transform: translate(-50%, -6px);
+        max-width: 80vw;
+        white-space: normal;
+    }
+
+    #intro-title .greeting[data-tip]:hover::after {
+        transform: translate(-50%, -10px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    /* Only the fade, no slide - and no transform override here, or it would
+       drag the small-screen bubble back to the right-hand position. */
+    #intro-title .greeting[data-tip]::after {
+        transition: opacity 0.15s ease;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     #intro-title .tw-char {
         transition: none;
@@ -646,20 +791,32 @@ footer .copyright {
 
 
 #intro-title .italic-word {
-    font-family: "ivymode", sans-serif;
+    font-family: "Quattrocento", serif;
     font-weight: 400;
     font-size: inherit;
-    color: var(--black);
-    font-style: italic;
+    color: var(--title-blue);
+    font-style: normal;
 }
 
 #intro-description {
     font-family: "Work Sans", sans-serif;
     font-weight: 400;
-    color: var(--black);
+    color: var(--title-blue);
     font-size: 1.125rem;
     /* 20px*/
     text-align: center;
+}
+
+/* Desktop and tablet keep the deliberate two-line break; below 768px the
+   sentence flows and wraps on its own. */
+.wide-break {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .wide-break {
+        display: inline;
+    }
 }
 
 .button-get-to-know-me {
@@ -669,15 +826,33 @@ footer .copyright {
     justify-content: center;
     height: 44px;
     padding: 0 1.5em;
-    background-color: var(--black);
-    color: var(--white);
-    border-radius: 0.5em;
+    background-color: transparent;
+    border: 1px solid var(--title-blue);
+    color: var(--title-blue);
+    border-radius: 4px;
     overflow: hidden;
     font-weight: 400;
     text-align: center;
     text-decoration: none;
     font-family: "Work Sans", sans-serif;
     margin-top: 2em;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.button-get-to-know-me:hover {
+    background-color: var(--title-blue);
+    color: var(--white);
+}
+
+.button-get-to-know-me svg,
+.button-get-to-know-me svg path {
+    stroke: var(--title-blue);
+    transition: stroke 0.2s ease;
+}
+
+.button-get-to-know-me:hover svg,
+.button-get-to-know-me:hover svg path {
+    stroke: var(--white);
 }
 
 /* -----Indicator----- */
@@ -751,13 +926,13 @@ footer .copyright {
 
 #linkedin:hover,
 #behance:hover {
-    color: var(--blue);
+    color: var(--title-blue);
     cursor: pointer;
 }
 
 /* ---------- |Mobile| PAGE: PROJECTS ---------- */
 #page-projects {
-    margin-top: 120px;
+    margin-top: 106px;
 }
 
 /* Video responsive size */
@@ -774,24 +949,25 @@ footer .copyright {
 
 /* ---------- |Mobile| PAGE: ABOUT ---------- */
 #page-about {
-    margin-top: 120px;
+    margin-top: 106px;
     margin-left: 1.5em;
     margin-right: 1.5em;
     margin-bottom: 5em;
 }
 
 #page-about-title {
-    font-family: "ivymode", sans-serif;
+    font-family: "Quattrocento", serif;
     font-weight: 400;
     font-size: 2.5rem;
+    text-transform: uppercase;
     margin-bottom: 1em;
     line-height: 1.2em;
     text-align: center;
 }
 
 #page-about-title .italic-word {
-    font-style: italic;
-    font-family: "ivymode", sans-serif;
+    font-style: normal;
+    font-family: "Quattrocento", serif;
     font-size: 2.5rem;
 }
 
@@ -823,7 +999,7 @@ footer .copyright {
 .about-tag {
     height: 44px;
     border-radius: 100px;
-    border: 1px solid var(--black);
+    border: 1px solid var(--title-blue);
     padding: 8px 16px;
     display: flex;
     align-items: center;
@@ -841,14 +1017,14 @@ footer .copyright {
 }
 
 #about-current-status {
-    border: solid 2px var(--black);
+    border: solid 2px var(--title-blue);
     border-radius: 0.25em;
     margin-bottom: 1em;
     overflow: hidden;
 }
 
 #current-box {
-    border-bottom: 2px solid var(--black);
+    border-bottom: 2px solid var(--title-blue);
 }
 
 #about-current-title {
@@ -878,7 +1054,7 @@ footer .copyright {
 
 /* Card style around the image + its caption */
 .about-split__image {
-    border: 1.5px solid var(--grey);
+    border: 1.5px solid var(--light-blue);
     border-radius: 16px;
     overflow: hidden;
     display: flex;
@@ -893,7 +1069,7 @@ footer .copyright {
 
 /* Divider between image and caption */
 .about-split__image p {
-    border-top: 1.5px solid var(--grey);
+    border-top: 1.5px solid var(--light-blue);
     padding: 1em 1.25em;
     margin: 0;
 }
@@ -910,7 +1086,7 @@ footer .copyright {
 .about-split__image p,
 .about-split__image p i {
     font-size: 0.875rem;
-    color: var(--dark-grey);
+    color: var(--title-blue);
 }
 
 /* Mobile-only layout reordering for section 2: Title -> Image & Description -> Paragraphs */
@@ -927,10 +1103,6 @@ footer .copyright {
     footer h2 {
         font-size: 1.75rem;
         margin-bottom: 32px;
-    }
-
-    footer h2 em {
-        font-size: 1.85rem;
     }
 
     footer .sub {
@@ -981,16 +1153,16 @@ footer .copyright {
 }
 
 blockquote {
-    font-family: "ivymode", sans-serif;
-    font-style: italic;
+    font-family: "Quattrocento", serif;
+    font-style: normal;
     font-weight: 400;
-    color: var(--black);
+    color: var(--title-blue);
     font-size: 2rem;
     text-align: left;
     padding: 0.5em 0em 0.5em 1em;
     /* top right bottom left */
     line-height: 1.5em;
-    border-left: solid 2px var(--black);
+    border-left: solid 2px var(--title-blue);
 }
 
 /* Blessed section — centred, no border */
@@ -1006,7 +1178,7 @@ blockquote {
 }
 
 .hyperlink-hightlight {
-    color: var(--black);
+    color: var(--title-blue);
     background-color: var(--yellow);
 }
 
@@ -1018,7 +1190,7 @@ blockquote {
 
 a,
 .hyperlink-normal {
-    color: var(--black);
+    color: var(--title-blue);
 }
 
 work-exp-time-des {
@@ -1048,7 +1220,7 @@ work-exp-time-des {
     /* ...and an em-based width so the words-per-line (and thus the
        line grouping) stay the same at every size */
     max-width: 9em;
-    color: var(--black);
+    color: var(--title-blue);
     text-align: center;
     margin-bottom: 0.5em;
     line-height: 0.8em;
@@ -1061,7 +1233,7 @@ work-exp-time-des {
 #intro-title-photo:hover .italic-word-photo,
 #intro-title-photo:hover .tw-line,
 #intro-title-photo:hover .tw-char {
-    color: #3a4db5;
+    color: var(--title-blue);
 }
 
 /* Typewriter "writing" reveal */
@@ -1095,7 +1267,7 @@ work-exp-time-des {
     font-family: "ivymode", sans-serif;
     font-weight: 400;
     font-size: inherit;
-    color: var(--black);
+    color: var(--title-blue);
     font-style: italic;
 }
 
@@ -1116,7 +1288,7 @@ work-exp-time-des {
 
 /* ---------- |Mobile| PAGE: CONTACT ---------- */
 #page-contact {
-    margin-top: 120px;
+    margin-top: 106px;
     padding-left: 1.5em;
     padding-right: 1.5em;
     margin-bottom: 5em;
@@ -1140,7 +1312,7 @@ work-exp-time-des {
 
 .contact-info-detail {
     font-size: 1.5em;
-    color: var(--black);
+    color: var(--title-blue);
 }
 
 #contact-image {
@@ -1158,13 +1330,13 @@ work-exp-time-des {
 }
 
 .main-container {
-    margin-top: 120px;
+    margin-top: 106px;
     padding: 1em;
     margin-bottom: 2em;
 }
 
 .go-to-project {
-    color: var(--black);
+    color: var(--title-blue);
     display: inline-block;
     margin-bottom: 1em;
 }
@@ -1180,7 +1352,7 @@ work-exp-time-des {
 .data-value .data {
     margin-bottom: 0;
     font-weight: 600;
-    color: var(--dark-grey);
+    color: var(--title-blue);
 }
 
 .data-value .value {
@@ -1189,6 +1361,7 @@ work-exp-time-des {
 }
 
 .subpage-title {
+    font-family: "Quattrocento", serif;
     margin-bottom: 1em;
 }
 
@@ -1204,8 +1377,7 @@ work-exp-time-des {
     background-color: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    /* border: solid 1px var(--dark-grey); */
+    border: 1px solid var(--light-blue);
     padding: 1em;
     border-radius: 0.5em;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -1213,6 +1385,7 @@ work-exp-time-des {
 
 .subpage-title-section {
     margin-top: 1em;
+    text-transform: uppercase;
 }
 
 .subpage-image {
@@ -1221,7 +1394,7 @@ work-exp-time-des {
 }
 
 .company-link {
-    color: var(--black);
+    color: var(--title-blue);
 }
 
 /* *********************************************************** */
@@ -1258,18 +1431,28 @@ work-exp-time-des {
         margin-top: 0;
     }
 
+    #intro-title {
+        font-size: 6rem;
+        line-height: 0.6em;
+    }
+
     #intro-title .italic-word {
-        font-family: "ivymode", sans-serif;
+        font-family: "Quattrocento", serif;
         font-weight: 400;
         font-size: inherit;
-        color: var(--black);
-        font-style: italic;
+        color: var(--title-blue);
+        font-style: normal;
+    }
+
+    /* Greeting lines carry the text, so they set the visible size */
+    #intro-title .greeting {
+        font-size: 5rem;
     }
 
     #intro-description {
         font-family: "Work Sans", sans-serif;
-        font-weight: 300;
-        color: var(--black);
+        font-weight: 400;
+        color: var(--title-blue);
         font-size: 1.25rem;
         text-align: center;
         max-width: 50rem;
@@ -1284,7 +1467,7 @@ work-exp-time-des {
         max-width: 60%;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 120px;
+        margin-top: 106px;
         margin-bottom: 3em;
         display: grid;
         grid-template-columns: 1fr 2fr;
@@ -1365,7 +1548,7 @@ work-exp-time-des {
         max-width: 70%;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 120px;
+        margin-top: 106px;
     }
 
     .subpage-project-info {
@@ -1407,7 +1590,7 @@ work-exp-time-des {
 .greeting {
     opacity: 0;
     animation: slideInUp 0.4s ease-out forwards;
-    font-family: "ivymode", sans-serif;
+    font-family: "Quattrocento", serif;
     font-weight: 400;
     font-size: inherit;
 }
@@ -1465,7 +1648,7 @@ work-exp-time-des {
     opacity: 0;
     animation: slideInUp 0.5s ease-out forwards;
     animation-delay: 0.8s;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 /* 4. Button */
@@ -1568,18 +1751,19 @@ footer {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    color: var(--black);
+    color: var(--title-blue);
     border-radius: 50%;
     cursor: pointer;
     text-decoration: none;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: background-color 0.2s ease,
-                box-shadow 0.2s ease;
+                box-shadow 0.2s ease,
+                color 0.2s ease;
     margin-bottom: 1rem;
 }
 
 .project-modal-back:hover {
-    background-color: var(--dark-grey);
+    background-color: var(--title-blue);
     color: var(--white);
     transform: scale(1.08);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
@@ -1589,6 +1773,10 @@ footer {
     stroke: var(--white);
 }
 
+.project-modal-back svg path {
+    transition: stroke 0.2s ease;
+}
+
 .project-modal-back svg {
     width: 20px;
     height: 20px;
@@ -1596,7 +1784,7 @@ footer {
 }
 
 .project-modal-back svg path {
-    stroke: var(--black);
+    stroke: var(--title-blue);
 }
 
 /* Modal Content Area */
@@ -1622,7 +1810,7 @@ footer {
     background-color: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--light-blue);
     padding: 1em;
     border-radius: 0.5em;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -1632,9 +1820,9 @@ footer {
 .project-modal-content footer {
     opacity: 1;
     animation: none;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    width: 100vw;
+    margin-left: calc(-50vw + 50% + var(--gap));
+    margin-right: calc(-50vw + 50% + var(--gap));
+    width: auto;
     margin-top: 3rem;
 }
 
