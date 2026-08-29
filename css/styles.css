@@ -769,8 +769,8 @@ footer .copyright {
         top: auto;
         bottom: 100%;
         transform: translate(-50%, -6px);
-        max-width: 80vw;
-        white-space: normal;
+        /* Keep the tip on a single line here too */
+        white-space: nowrap;
     }
 
     #intro-title .greeting[data-tip]:hover::after {
